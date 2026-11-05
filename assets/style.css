@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Helvetica, sans-serif;
+}
+
+.rodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 385px;
+    padding: 0% 10%;
+    background-color: #333333;
+} 
+
+.rodape-informacoes{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 30px;
+}
+
+.rodape-informacoes p{
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.rodape-informacoes ul{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+    list-style-type: none;
+    font-size: 0.85rem;
+    color: #ffffff;
+}
+
+.rodape-pagamento{
+    width: 160px;
+}
+
+.pagamento-imagens{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.pagamento-imagens img{
+    width: 40px;
+}
+
+.rodape-seguir ul{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rodape-seguir a{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.rodape-seguir i{
+    font-size: 1.2rem;
+}
+
+.rodape-qrcode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rodape-qrcode img{
+    height: 90px;
+}
+
+.rodape hr{
+    width: 100%;
+    border: 1px solid #ffffff81;
+}
+
+.rodape-copyright{
+    color: #ffffff;
+    margin-top: 20px;
+}
