@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
     height: 80px;
-    background-color: #333333;
+    background-color: #212121;
     padding: 0 10%;
 } 
 
@@ -38,6 +38,11 @@
 .cabecalho-info i {
     color: #ffffff;
     cursor: pointer;
+    transition: 0.4s;
+}
+
+.cabecalho-info i:hover {
+    color: #ff6800;
 }
 
 .cabecalho-info i:nth-child(2) {
@@ -48,6 +53,11 @@
 .cabecalho-info a {
     text-decoration: none;
     color: #ffffff;
+    transition: 0.4s;
+}
+
+.cabecalho-info a:hover {
+    color: #ff6800;
 }
 
 .cabecalho-info a:last-child {
@@ -55,13 +65,11 @@
     border: 1px solid #ff6800;
     border-radius: 6px;
     padding: 8px;
-    transition: 0.4s;
 }
 
 .cabecalho-info a:last-child:hover {
     color: #ffffff;
-    border: 1px solid transparent;
-    background-color: #ff6800;
+    border: 1px solid #ffffff;
 }
 
 .principal {
@@ -69,12 +77,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #090909;
+    height: 800px;
+    background-color: #191919;
 }
 
 .principal-image {
     width: 50%;
-    height: 860px;
+    height: 100%;
     object-fit: cover;
     object-position: 10% center;
 }
@@ -84,7 +93,7 @@
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 860px;
+    height: 100%;
     padding: 5% 0%;
     background-color: #090909;
     border-radius: 30px 0px 0px 30px;
@@ -139,10 +148,17 @@
 .formulario-info form input {
     width: 100%;
     height: 45px;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 5px;
     padding: 0px 10px;
     background-color: #333333;
+    color: #ffffff;
+    caret-color: #ff6800;
+}
+
+.formulario-info form input:focus {
+    border: 1px solid #ff6800;
+    outline: none;
 }
 
 .formulario-info form button {
