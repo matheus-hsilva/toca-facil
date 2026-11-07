@@ -19,35 +19,39 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-cart-shopping"></i>
             <a href="#">Entrar</a>
-            <a href="view/cadastar.html">Cadastrar</a>
+            <a href="view/Cadastro_aluno.html">Cadastrar</a>
         </nav>
     </header>
 
-    <main class="principal-funcionario">
-        <img src="assets/images/" alt="Foto principal">
-        <section class="formulario">
-            <img src="assets/images/logo toca-facil.png" alt="Logo do TocaFácil">
-            <h1>Bem-vindo de volta!</h1>
-            <p>Faça login para continuar no seu som.</p>
-            <form method="POST" action="#">
-                <label for="email-usuario">E-mail ou usuário</label>
-                <input type="text" placeholder="Digite o seu e-mail ou usuário">
-                <label for="senha">Senha</label>
-                <input type="password" placeholder="Digite sua senha">
-                <button type="submit">Entrar</button>
-            </form>
-            <a href="#">Esqueceu sua senha?</a>
-            <div class="formulario-separador">
-                <hr>
-                <p>ou</p>
-                <hr>    
+    <main class="principal">
+        <img  class="principal-image" src="assets/images/login.png" alt="Foto principal">
+        <section class="principal-formulario">
+            <div class="formulario-info">
+                <img src="assets/images/logo toca-facil.png" alt="Logo do TocaFácil">
+                <div class="info-titulo">
+                    <h1>Bem-vindo de volta!</h1>
+                    <p>Faça login para continuar no seu som.</p>
+                </div>
+                <form method="POST" action="#">
+                    <label for="email-usuario">E-mail ou usuário</label>
+                    <input type="text" placeholder="Digite o seu e-mail ou usuário">
+                    <label for="senha">Senha</label>
+                    <input type="password" placeholder="Digite sua senha">
+                    <button type="submit">Entrar</button>
+                </form>
+                <a class="info-esquecer" href="#">Esqueceu sua senha?</a>
+                <div class="info-separador">
+                    <hr>
+                    <p>ou</p>
+                    <hr>
+                </div>
+                <div class="info-logins">
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-apple"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <p>Ainda não tem uma conta? <a href="view/Cadastro_aluno.html">Cadastre-se</a></p>
             </div>
-            <div class="formulario-logins">
-                <i class="fa-brands fa-google"></i>
-                <i class="fa-brands fa-apple"></i>
-                <i class="fa-brands fa-facebook-f"></i>
-            </div>
-            <p>Ainda não tem uma conta? <span>Cadastre-se</span></p>
         </section>
     </main>
 
