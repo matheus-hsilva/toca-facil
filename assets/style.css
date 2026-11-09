@@ -123,6 +123,92 @@
     border: 1px solid #ffffff;
 }
 
+.principal-hero {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.principal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transform: scaleX(-1);
+    inset: 0;
+    z-index: 0;
+}
+
+.principal-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.98) 35%,
+        rgba(0, 0, 0, 0.30) 100%
+    );
+    z-index: 1;
+}
+
+.hero-conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: #ffffff;
+}
+
+.hero-conteudo h1 {
+    font-size: 2.6rem;
+    font-style: italic;
+}
+
+.hero-conteudo h1 span {
+    color: #ff6800;;
+}
+
+.hero-conteudo p {
+    color: #ffffffba;
+    width: 370px;
+    font-size: 0.9rem;
+}
+
+.hero-conteudo a {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.hero-conteudo a i {
+    margin-left: 5px;
+}
+
+.hero-conteudo a button {
+    border: 1px solid transparent;
+    background-color: #ff6800;
+    color: #090909;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.hero-conteudo a button:hover {
+    background-color: transparent;
+    border: 1px solid #ff6800;
+    color: #ff6800;
+}
+
 .rodape{
     display: flex;
     justify-content: center;

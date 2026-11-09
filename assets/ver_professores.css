@@ -1,0 +1,139 @@
+.principal-hero {
+    height: 230px;
+}
+
+.hero-conteudo h1 {
+    font-style: normal;
+    font-size: 2.6rem;
+}
+
+.hero-conteudo h1 span {
+    font-style: italic;
+    color: #ff6800;;
+}
+
+.principal-professores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-color: #090909;
+    padding: 1.3% 10%;
+}
+
+.professores-cadastrar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.professores-cadastrar a {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.professores-cadastrar a button {
+    border: 1px solid #ff6800;
+    background-color: transparent;
+    color: #ff6800;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.professores-cadastrar a button i {
+    margin-left: 5px;
+}
+
+.professores-cadastrar a button:hover {
+    border: 1px solid transparent;
+    background-color: #ff6800;
+    color: #090909;
+}
+
+.professores-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.cards-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 350px;
+    padding-bottom: 10px;
+    background-color: #212121;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.cards-item:hover {
+    border: 2px solid #ff6800;
+}
+
+.cards-item p {
+    padding-left: 20px;
+}
+
+.cards-item p:nth-child(1) {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.cards-item p:nth-child(2) {
+    font-size: 0.8rem;
+    color: #ffffffba;
+}
+
+.item-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px 0px;
+}
+
+.item-btn a {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    padding: 6px 8px;
+    transition: 0.4s;
+}
+
+.item-btn a:last-child {
+    color: #d90808;
+    border: 1px solid #d90808;
+}
+
+.item-btn i {
+    margin-right: 5px;
+}
+
+.cards-item a:hover {
+    color: #ffffff;
+    background-color: #ff6800;
+    border: 1px solid transparent;
+}
+
+.item-btn a:last-child:hover {
+    color: #ffffff;
+    background-color: #d90808;
+    border: 1px solid transparent;
+} 
