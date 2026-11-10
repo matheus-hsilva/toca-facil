@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/cadastro_professor.css">
+    <link rel="stylesheet" href="../assets/cadastro.css">
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>TocaFácil</title>
@@ -38,8 +38,16 @@
             </div>
 
             <div class="campo">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" id="confirmarSenha" placeholder="Senha">
+                <i class="fa-solid fa-music"></i>
+                <select id="especialidade" name="especialidade">
+                    <option value="" disabled selected>Selecione a especialidade</option>
+                    <option value="violao">Violão</option>
+                    <option value="guitarra">Guitarra</option>
+                    <option value="teclado">Teclado</option>
+                    <option value="bateria">Bateria</option>
+                    <option value="baixo">Baixo</option>
+                    <option value="canto">Canto</option>
+                </select>
             </div>
 
             <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
