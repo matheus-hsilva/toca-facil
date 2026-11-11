@@ -40,8 +40,10 @@
             <div class="cursos-cadastrar">
                 <button id="abrir-modal" onclick="abrirModal()">Cadastrar Curso <i class="fa-solid fa-plus"></i></button>
             </div>
+
+
             <div id="cadastrar-modal">
-                <form class="modal-formulario">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <div class="btn-fechar">
                         <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
@@ -61,6 +63,7 @@
                 </form>
             </div>
     
+
             <div class="cursos-cards">
                 <div class="cards-item">
                     <img src="../assets/images/curso violao.png" alt="Foto de um violão">

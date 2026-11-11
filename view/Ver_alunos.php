@@ -40,8 +40,10 @@
             <div class="alunos-cadastrar">
                <button id="abrir-modal" onclick="abrirModal()">Cadastrar Aluno <i class="fa-solid fa-plus"></i></button>
             </div>
+
+
             <div id="cadastrar-modal">
-                <form class="modal-formulario">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <div class="btn-fechar">
                         <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
@@ -61,6 +63,8 @@
                     <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
+
+
             <div class="alunos-cards">
                 <div class="cards-item">
                     <p>João Pereira</p>
