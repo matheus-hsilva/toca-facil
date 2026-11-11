@@ -30,12 +30,8 @@
     width: 100%;
 }
 
-.alunos-cadastrar a {
-    text-decoration: none;
-    font-size: 0.9rem;
-}
 
-.alunos-cadastrar a button {
+.alunos-cadastrar button {
     border: 1px solid #ff6800;
     background-color: transparent;
     color: #ff6800;
@@ -45,7 +41,7 @@
     transition: 0.4s;
 }
 
-.alunos-cadastrar a button i {
+.alunos-cadastrar button i {
     margin-left: 5px;
 }
 

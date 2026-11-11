@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/cadastro.css">
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>TocaFácil</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="../asstes/script.js"></script>
 </head>
 <body>
-    <a href="Ver_professores.php" class="btn-voltar"><i class="fa-solid fa-arrow-left"></i>Voltar</a>
-    <main>
+    <header class="cabecalho">
+        <nav class="cabecalho-logo">
+            <img src="../assets/images/logo toca-facil.png" alt="Logo do TocaFácil">
+            <h1>Toca<span>Fácil</span></h1>
+        </nav>
+        <nav class="cabecalho-info">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <a href="#">Entrar</a>
+            <a href="Cadastrar_proprietario.php">Cadastrar</a>
+        </nav>
+    </header>
 
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="../assets/images/logo toca-facil.png">
+    <main class="principal">
+        <img  class="principal-image" src="../assets/images/login.png" alt="Foto principal">
+        <section class="principal-formulario">
+            <div class="formulario-info">
+                <img src="../assets/images/logo toca-facil.png" alt="Logo do TocaFácil">
+                <div class="info-titulo">
+                    <h1>Bem-vindo de volta!</h1>
+                    <p>Faça login para continuar no seu som.</p>
+                </div>
+                <form method="POST" action="#">
+                    <label for="email-usuario">E-mail ou usuário</label>
+                    <input type="text" placeholder="Digite o seu e-mail ou usuário">
+                    <label for="senha">Senha</label>
+                    <input type="password" placeholder="Digite sua senha">
+                </form>
+                <a class="btn-entrar" href="Principal.php"><button type="submit">Entrar</button></a>
+                <a class="info-esquecer" href="#">Esqueceu sua senha?</a>
+                <div class="info-separador">
+                    <hr>
+                    <p>ou</p>
+                    <hr>
+                </div>
+                <div class="info-logins">
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-apple"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <p>Ainda não tem uma conta? <a href="Cadastrar_proprietario.php">Cadastre-se</a></p>
             </div>
-            <h1>Cadastrar <span>Professor</span></h1>
-        </div>
-
-
-        <form class="formulario-cadastro">
-
-            <div class="campo">
-                <i class="fa-regular fa-user"></i>
-                <input type="text" id="nome" placeholder="Nome do professor">
-            </div>
-
-            <div class="campo">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="email" id="email" placeholder="E-mail">
-            </div>
-
-            <div class="campo">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" id="senha" placeholder="Senha">
-            </div>
-
-            <div class="campo">
-                <i class="fa-solid fa-music"></i>
-                <select id="especialidade" name="especialidade">
-                    <option value="" disabled selected>Selecione a especialidade</option>
-                    <option value="violao">Violão</option>
-                    <option value="guitarra">Guitarra</option>
-                    <option value="teclado">Teclado</option>
-                    <option value="bateria">Bateria</option>
-                    <option value="baixo">Baixo</option>
-                    <option value="canto">Canto</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
-
-        </form>
+        </section>
     </main>
 
     <footer class="rodape"> 

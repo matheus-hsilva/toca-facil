@@ -30,12 +30,7 @@
     width: 100%;
 }
 
-.professores-cadastrar a {
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.professores-cadastrar a button {
+.professores-cadastrar button {
     border: 1px solid #ff6800;
     background-color: transparent;
     color: #ff6800;
@@ -45,11 +40,11 @@
     transition: 0.4s;
 }
 
-.professores-cadastrar a button i {
+.professores-cadastrar button i {
     margin-left: 5px;
 }
 
-.professores-cadastrar a button:hover {
+.professores-cadastrar button:hover {
     border: 1px solid transparent;
     background-color: #ff6800;
     color: #090909;

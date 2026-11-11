@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/ver_alunos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="../asstes/script.js"></script>
 </head>
 <body>
     <header class="cabecalho"> 
@@ -39,7 +38,25 @@
 
          <section class="principal-alunos">
             <div class="alunos-cadastrar">
-                <a href="Cadastrar_aluno.php"><button>Cadastrar Aluno <i class="fa-solid fa-plus"></i></button></a>
+               <button id="abrir-modal" onclick="abrirModal()">Cadastrar Aluno <i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div id="cadastrar-modal">
+                <form class="modal-formulario">
+                    <h1>Cadastrar <span>Aluno</span></h1>
+                    <input type="text" id="nome" placeholder="Seu nome">
+                    <input type="email" id="email" placeholder="Seu e-mail">
+                    <input type="password" id="senha" placeholder="Sua senha">
+                    <!--
+                    <select id="curso-aluno" name="curso-aluno">
+                        <option value="" disabled selected>Selecione o Curso</option>
+                        <option value="violao"></option>
+                        <option value="guitarra"></option>
+                        <option value="teclado"></option>
+                        <option value="bateria"></option>
+                    </select>
+                    -->
+                    <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
+                </form>
             </div>
             <div class="alunos-cards">
                 <div class="cards-item">
@@ -137,5 +154,6 @@
         <hr>
         <p class="rodape-copyright">© 2026 TocaFácil. Todos os direitos acadêmicos reservados</p>
     </footer>
+    <script src="../assets/script.js"></script>
 </body>
 </html>

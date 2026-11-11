@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/ver_cursos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="../asstes/script.js"></script>
 </head>
 <body>
     <header class="cabecalho"> 
@@ -39,8 +38,26 @@
 
          <section class="principal-cursos">
             <div class="cursos-cadastrar">
-                <a href="Cadastrar_curso.php"><button>Cadastrar Curso <i class="fa-solid fa-plus"></i></button></a>
+                <button id="abrir-modal" onclick="abrirModal()">Cadastrar Curso <i class="fa-solid fa-plus"></i></button>
             </div>
+            <div id="cadastrar-modal">
+                <form class="modal-formulario">
+                    <h1>Cadastrar <span>Curso</span></h1>
+                    <input type="text" id="nome" placeholder="Nome do curso">
+                    <textarea id="descricao" name="descricao" placeholder="Descrição do curso" required></textarea>
+                    <select id="professor" name="professor">
+                        <option value="" disabled selected>Selecione o Professor</option>
+                        <option value="violao">Professor 1</option>
+                        <option value="guitarra">Professor 2</option>
+                        <option value="teclado">Professor 3</option>
+                        <option value="bateria">Professor 4</option>
+                        <option value="baixo">Professor 5</option>
+                        <option value="canto">Professor 6</option>
+                    </select>
+                    <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
+                </form>
+            </div>
+    
             <div class="cursos-cards">
                 <div class="cards-item">
                     <img src="../assets/images/curso violao.png" alt="Foto de um violão">
@@ -52,6 +69,8 @@
                         <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
                     </div>
                 </div>
+
+
                 <div class="cards-item">
                     <img src="../assets/images/curso guitarra.png" alt="Foto de uma guitarra">
                     <p>Guitarra Avançada</p>
@@ -141,5 +160,6 @@
         <hr>
         <p class="rodape-copyright">© 2026 TocaFácil. Todos os direitos acadêmicos reservados</p>
     </footer>
+    <script src="../assets/script.js"></script>
 </body>
 </html>
