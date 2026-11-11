@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TocaFácil</title>
     <link rel="stylesheet" href="../assets/style.css">
-    <link rel="stylesheet" href="../assets/ver_alunos.css">
+    <link rel="stylesheet" href="../assets/ver_professores.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="../asstes/script.js"></script>
 </head>
@@ -17,14 +17,14 @@
                 <h1>Toca<span>Fácil</span></h1>
             </nav>
             <ul class="cabecalho-menu">
-                <li><a href="Principal.html">Início</a></li>
-                <li><a href="Ver_cursos.html">Cursos</a></li>
-                <li><a href="Ver_professores.html">Professores</a></li>
-                <li id="ativo"><a href="Ver_alunos.html">Alunos</a></li>
+                <li><a href="Principal.php">Início</a></li>
+                <li><a href="Ver_cursos.php">Cursos</a></li>
+                <li id="ativo"><a href="Ver_professores.php">Professores</a></li>
+                <li><a href="Ver_alunos.php">Alunos</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
-            <a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            <a href="../index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
         </nav>
     </header>
 
@@ -32,16 +32,16 @@
         <section class="principal-hero">
             <img src="../assets/images/login.png" alt="Foto do Hero">
             <div class="hero-conteudo">
-                <h1>Nossos <span>Alunos</span></h1>
-                <p>Todos alunos que estudam em nossa plataforma!</p>
+                <h1>Nossos <span>Professores</span></h1>
+                <p>Conheça nossos professores e especialistas em música, prontos para te ensinar!</p>
             </div>
         </section>
 
-         <section class="principal-alunos">
-            <div class="alunos-cadastrar">
-                <a href="Cadastrar_aluno.html"><button>Cadastrar Aluno <i class="fa-solid fa-plus"></i></button></a>
+         <section class="principal-professores">
+            <div class="professores-cadastrar">
+                <a href="Cadastrar_professor.php"><button>Cadastrar Professor <i class="fa-solid fa-plus"></i></button></a>
             </div>
-            <div class="alunos-cards">
+            <div class="professores-cards">
                 <div class="cards-item">
                     <p>João Pereira</p>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde porro omnis eum minus accusamus nemo aspernatur, culpa, hic eligendi consequatur accusantium molestias mollitia ea provident, delectus possimus quae quo perferendis.</p>

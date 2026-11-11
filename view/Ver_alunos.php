@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TocaFácil</title>
     <link rel="stylesheet" href="../assets/style.css">
-    <link rel="stylesheet" href="../assets/principal.css">
+    <link rel="stylesheet" href="../assets/ver_alunos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="../asstes/script.js"></script>
-</head> 
+</head>
 <body>
-    <header class="cabecalho">
+    <header class="cabecalho"> 
         <nav class="cabecalho-info">
             <nav class="cabecalho-logo">
                 <img src="../assets/images/logo toca-facil.png" alt="Logo do TocaFácil">
                 <h1>Toca<span>Fácil</span></h1>
             </nav>
             <ul class="cabecalho-menu">
-                <li id="ativo"><a href="#">Início</a></li>
-                <li><a href="Ver_cursos.html">Cursos</a></li>
-                <li><a href="Ver_professores.html">Professores</a></li>
-                <li><a href="Ver_alunos.html">Alunos</a></li>
+                <li><a href="Principal.php">Início</a></li>
+                <li><a href="Ver_cursos.php">Cursos</a></li>
+                <li><a href="Ver_professores.php">Professores</a></li>
+                <li id="ativo"><a href="Ver_alunos.php">Alunos</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
-            <a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            <a href="../index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
         </nav>
     </header>
 
@@ -32,41 +32,51 @@
         <section class="principal-hero">
             <img src="../assets/images/login.png" alt="Foto do Hero">
             <div class="hero-conteudo">
-                <h1>Bem-vindo(a) <span>de volta!</span></h1>
-                <p>Continue sua jornada musical e descubra novos cursos para evoluir no seu instrumento.</p>
-                <a href="Ver_cursos.html"><button>Explorar Cursos <i class="fa-solid fa-arrow-right-long"></i></button></a>
+                <h1>Nossos <span>Alunos</span></h1>
+                <p>Todos alunos que estudam em nossa plataforma!</p>
             </div>
         </section>
-        
-        <section class="principal-cursos">
-            <div class="cursos-destaque">
-                <h1>Cursos em destaque</h1>
-                <a href="Ver_cursos.html"><button>Ver todos os cursos <i class="fa-solid fa-arrow-right-long"></i></button></a>
+
+         <section class="principal-alunos">
+            <div class="alunos-cadastrar">
+                <a href="Cadastrar_aluno.php"><button>Cadastrar Aluno <i class="fa-solid fa-plus"></i></button></a>
             </div>
-            <div class="cursos-cards">
+            <div class="alunos-cards">
                 <div class="cards-item">
-                    <img src="../assets/images/curso violao.png" alt="Foto de um violão">
-                    <p>Violão Básico</p>
-                    <p>Aprenda do zero ao primeiro acorde.</p>
-                    <a href="Ver_cursos.html"><i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p>João Pereira</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde porro omnis eum minus accusamus nemo aspernatur, culpa, hic eligendi consequatur accusantium molestias mollitia ea provident, delectus possimus quae quo perferendis.</p>
+                    <div class="item-btn">
+                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
+                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                    </div>
                 </div>
                 <div class="cards-item">
-                    <img src="../assets/images/curso guitarra.png" alt="Foto de uma guitarra">
-                    <p>Guitarra Avançada</p>
-                    <p>Desenvolva suas habilidades.</p>
-                    <a href="Ver_cursos.html"><i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p>Maria Souza</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quia, illum reprehenderit, ut ipsam vel suscipit ipsa, quas ab non blanditiis. Eius cupiditate architecto, esse quis incidunt tempora doloremque facere.</p>
+                    <div class="item-btn">
+                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
+                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                    </div>
                 </div>
                 <div class="cards-item">
-                    <img src="../assets/images/curso piano.png" alt="Foto de um piano">
-                    <p>Piano para Todos</p>
-                    <p>Aprenda as bases do piano.</p>
-                    <a href="Ver_cursos.html"><i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p>Carlos Mender</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, laudantium voluptas veritatis aliquam omnis maiores libero ipsa provident suscipit, natus saepe temporibus soluta odit quibusdam dicta! Ullam quidem tempora sint.</p>
+                    <div class="item-btn">
+                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
+                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                    </div>
                 </div>
                 <div class="cards-item">
-                    <img src="../assets/images/curso bateria.png" alt="Foto de uma bateria">
-                    <p>Bateria Profissional</p>
-                    <p>Técnicas avançadas e muito mais.</p>
-                    <a href="Ver_cursos.html"><i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p>Lucas Almeida</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos veritatis facilis aliquid, corrupti, temporibus voluptate exercitationem illum optio quia harum maiores repellat minus sed ipsa suscipit asperiores animi. Sunt, nobis.</p>
+                    <div class="item-btn">
+                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
+                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                    </div>
                 </div>
             </div>
         </section>

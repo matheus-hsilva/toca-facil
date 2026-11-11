@@ -17,14 +17,14 @@
                 <h1>Toca<span>Fácil</span></h1>
             </nav>
             <ul class="cabecalho-menu">
-                <li><a href="Principal.html">Início</a></li>
-                <li id="ativo"><a href="Ver_cursos.html">Cursos</a></li>
-                <li><a href="Ver_professores.html">Professores</a></li>
-                <li><a href="Ver_alunos.html">Alunos</a></li>
+                <li><a href="Principal.php">Início</a></li>
+                <li id="ativo"><a href="Ver_cursos.php">Cursos</a></li>
+                <li><a href="Ver_professores.php">Professores</a></li>
+                <li><a href="Ver_alunos.php">Alunos</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
-            <a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            <a href="../index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
         </nav>
     </header>
 
@@ -39,7 +39,7 @@
 
          <section class="principal-cursos">
             <div class="cursos-cadastrar">
-                <a href="Cadastrar_curso.html"><button>Cadastrar Curso <i class="fa-solid fa-plus"></i></button></a>
+                <a href="Cadastrar_curso.php"><button>Cadastrar Curso <i class="fa-solid fa-plus"></i></button></a>
             </div>
             <div class="cursos-cards">
                 <div class="cards-item">

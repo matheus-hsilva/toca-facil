@@ -9,7 +9,7 @@
     <title>TocaFácil</title>
 </head>
 <body>
-    <a href="Ver_professores.html" class="btn-voltar"><i class="fa-solid fa-arrow-left"></i>Voltar</a>
+    <a href="Ver_professores.php" class="btn-voltar"><i class="fa-solid fa-arrow-left"></i>Voltar</a>
     <main>
 
         <div class="logo">

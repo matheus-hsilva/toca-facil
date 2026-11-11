@@ -19,7 +19,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-cart-shopping"></i>
             <a href="#">Entrar</a>
-            <a href="view/Cadastrar_aluno.html">Cadastrar</a>
+            <a href="view/Cadastrar_aluno.php">Cadastrar</a>
         </nav>
     </header>
 
@@ -38,7 +38,7 @@
                     <label for="senha">Senha</label>
                     <input type="password" placeholder="Digite sua senha">
                 </form>
-                <a class="btn-entrar" href="view/Principal.html"><button type="submit">Entrar</button></a>
+                <a class="btn-entrar" href="view/Principal.php"><button type="submit">Entrar</button></a>
                 <a class="info-esquecer" href="#">Esqueceu sua senha?</a>
                 <div class="info-separador">
                     <hr>
@@ -50,7 +50,7 @@
                     <a href="#"><i class="fa-brands fa-apple"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
-                <p>Ainda não tem uma conta? <a href="view/Cadastrar_aluno.html">Cadastre-se</a></p>
+                <p>Ainda não tem uma conta? <a href="view/Cadastrar_aluno.php">Cadastre-se</a></p>
             </div>
         </section>
     </main>
