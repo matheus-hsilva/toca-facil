@@ -42,6 +42,9 @@
             </div>
             <div id="cadastrar-modal">
                 <form class="modal-formulario">
+                    <div class="btn-fechar">
+                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                    </div>
                     <h1>Cadastrar <span>Curso</span></h1>
                     <input type="text" id="nome" placeholder="Nome do curso">
                     <textarea id="descricao" name="descricao" placeholder="Descrição do curso" required></textarea>

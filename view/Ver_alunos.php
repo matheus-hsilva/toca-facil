@@ -42,6 +42,9 @@
             </div>
             <div id="cadastrar-modal">
                 <form class="modal-formulario">
+                    <div class="btn-fechar">
+                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                    </div>
                     <h1>Cadastrar <span>Aluno</span></h1>
                     <input type="text" id="nome" placeholder="Seu nome">
                     <input type="email" id="email" placeholder="Seu e-mail">

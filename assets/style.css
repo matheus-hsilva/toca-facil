@@ -221,6 +221,33 @@
     backdrop-filter: blur(1px);
 }
 
+#cadastrar-modal .btn-fechar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#cadastrar-modal .fechar-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #ff6800;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ff6800;
+    border-radius: 100%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+#cadastrar-modal .fechar-modal:hover {
+    border: 1px solid transparent;
+    background-color: #ff6800;
+    color: #090909;
+}
+
 #cadastrar-modal h1 {
     color: #ffffff;
     font-size: 1.8rem;
