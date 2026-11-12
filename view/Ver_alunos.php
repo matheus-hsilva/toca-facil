@@ -1,3 +1,7 @@
+<?php 
+    require "../processamento/funcoesBD.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -52,58 +56,26 @@
                     <input type="text" id="nome" placeholder="Seu nome" name="inputNome">
                     <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail">
                     <input type="password" id="senha" placeholder="Sua senha" name="inputSenha">
-                    
-                    <!--
-                    <select id="curso-aluno" name="curso-aluno">
-                        <option value="" disabled selected>Selecione o Curso</option>
-                        <option value="violao"></option>
-                        <option value="guitarra"></option>
-                        <option value="teclado"></option>
-                        <option value="bateria"></option>
-                    </select>
-                    -->
                     <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
-
+            
 
             <div class="alunos-cards">
-                <div class="cards-item">
-                    <p>João Pereira</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde porro omnis eum minus accusamus nemo aspernatur, culpa, hic eligendi consequatur accusantium molestias mollitia ea provident, delectus possimus quae quo perferendis.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <p>Maria Souza</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quia, illum reprehenderit, ut ipsam vel suscipit ipsa, quas ab non blanditiis. Eius cupiditate architecto, esse quis incidunt tempora doloremque facere.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <p>Carlos Mender</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, laudantium voluptas veritatis aliquam omnis maiores libero ipsa provident suscipit, natus saepe temporibus soluta odit quibusdam dicta! Ullam quidem tempora sint.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <p>Lucas Almeida</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos veritatis facilis aliquid, corrupti, temporibus voluptate exercitationem illum optio quia harum maiores repellat minus sed ipsa suscipit asperiores animi. Sunt, nobis.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
+                <?php
+                    $listaAlunos = retornarAlunos();
+                    while ($aluno = mysqli_fetch_assoc($listaAlunos)) {
+                        echo "<div class=\"cards-item\">";
+                        echo "<p>" . $aluno["nome"] . "</p>";
+                        echo "<p>" . $aluno["email"] . "</p>";
+                        echo "<div class=\"item-btn\">";
+                        echo "<a href=\"#\"><i class=\"fa-solid fa-eye\"></i> Visualizar</a>";
+                        echo "<a href=\"#\"><i class=\"fa-solid fa-pencil\"></i> Editar</a>";
+                        echo "<a href=\"#\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</a>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                ?>
             </div>
         </section>
     </main>

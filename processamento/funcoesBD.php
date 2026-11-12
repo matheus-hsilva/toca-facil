@@ -19,6 +19,7 @@
         mysqli_query($conexao,$consulta);
     }
 
+<<<<<<< HEAD
     function retornarProfessores(){
         $conexao = conectarBD();
         $consulta = "SELECT id, nome FROM professor";
@@ -32,4 +33,14 @@
         mysqli_query($conexao, $consulta);
     }   
 
+=======
+    function retornarAlunos(){
+
+        $conexao = conectarBD();
+        $consulta = "SELECT * FROM aluno";
+        $listarAlunos = mysqli_query($conexao, $consulta);
+        return $listarAlunos;
+    }
+
+>>>>>>> f45663b9ec5a81afe8610c130bbb2e2e998f88b6
 ?>
