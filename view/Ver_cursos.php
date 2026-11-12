@@ -1,3 +1,9 @@
+<?php
+    require "../processamento/funcoesBD.php";
+    $listaProfessores = retornarProfessores();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -38,27 +44,33 @@
 
          <section class="principal-cursos">
             <div class="cursos-cadastrar">
-                <button id="abrir-modal" onclick="abrirModal()">Cadastrar Curso <i class="fa-solid fa-plus"></i></button>
+                <button type="button" id="abrir-modal" onclick="abrirModal()">Cadastrar Curso <i class="fa-solid fa-plus"></i></button>
             </div>
 
 
             <div id="cadastrar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                <input type="hidden" name="acao" value="cadastrarCurso">
                     <div class="btn-fechar">
-                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                        <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
                     <h1>Cadastrar <span>Curso</span></h1>
-                    <input type="text" id="nome" placeholder="Nome do curso">
-                    <textarea id="descricao" name="descricao" placeholder="Descrição do curso" required></textarea>
-                    <select id="professor" name="professor">
-                        <option value="" disabled selected>Selecione o Professor</option>
-                        <option value="violao">Professor 1</option>
-                        <option value="guitarra">Professor 2</option>
-                        <option value="teclado">Professor 3</option>
-                        <option value="bateria">Professor 4</option>
-                        <option value="baixo">Professor 5</option>
-                        <option value="canto">Professor 6</option>
-                    </select>
+                    <input type="text" id="nome" placeholder="Nome do curso" name="inputNome">
+                    <textarea id="descricao" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
+                    <select id="professor" name="inputProfessorId" required>
+                    <option value="" disabled selected>Selecione o Professor</option>
+
+                    <?php
+
+                        while ($professor = mysqli_fetch_assoc($listaProfessores)) {
+                    ?>
+                        <option value="<?php echo $professor['id']; ?>">
+                            <?php echo htmlspecialchars($professor['nome']); ?>
+                        </option>
+                    <?php
+                        }
+                    ?>
+                </select>
                     <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>

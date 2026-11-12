@@ -19,4 +19,17 @@
         mysqli_query($conexao,$consulta);
     }
 
+    function retornarProfessores(){
+        $conexao = conectarBD();
+        $consulta = "SELECT id, nome FROM professor";
+        $listaProfessores = mysqli_query($conexao, $consulta);
+        return $listaProfessores;
+    }
+
+    function inserirCurso($nome, $descricao, $professorId){
+        $conexao = conectarBD();
+        $consulta = "INSERT INTO curso (nome, descricao, professor_id) VALUES ('$nome','$descricao','$professorId')";
+        mysqli_query($conexao, $consulta);
+    }   
+
 ?>

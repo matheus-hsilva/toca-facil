@@ -36,7 +36,21 @@
         header('Location:../view/Ver_professores.php');
         die();
 
-    }
-    
+    }  else if ($_POST['acao'] == 'cadastrarCurso'){
+        
+        if(!empty($_POST['inputNome']) && 
+        !empty($_POST['inputDescricao']) &&
+        !empty($_POST['inputProfessorId'])) {
+        
+        $nome = $_POST['inputNome'];
+        $descricao = $_POST['inputDescricao'];
+        $professorId = $_POST['inputProfessorId'];
+        }
 
+        inserirCurso($nome, $descricao, $professorId);
+
+        header('Location:../view/Ver_cursos.php');
+        die();
+
+    } 
 ?>
