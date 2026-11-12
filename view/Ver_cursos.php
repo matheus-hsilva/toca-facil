@@ -75,8 +75,6 @@
                         <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
                     </div>
                 </div>
-
-
                 <div class="cards-item">
                     <img src="../assets/images/curso guitarra.png" alt="Foto de uma guitarra">
                     <p>Guitarra Avançada</p>
