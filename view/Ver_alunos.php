@@ -38,19 +38,21 @@
 
          <section class="principal-alunos">
             <div class="alunos-cadastrar">
-               <button id="abrir-modal" onclick="abrirModal()">Cadastrar Aluno <i class="fa-solid fa-plus"></i></button>
+               <button  type="button" id="abrir-modal" onclick="abrirModal()">Cadastrar Aluno <i class="fa-solid fa-plus"></i></button>
             </div>
 
 
             <div id="cadastrar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="cadastrarAluno">
                     <div class="btn-fechar">
-                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                        <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
                     <h1>Cadastrar <span>Aluno</span></h1>
-                    <input type="text" id="nome" placeholder="Seu nome">
-                    <input type="email" id="email" placeholder="Seu e-mail">
-                    <input type="password" id="senha" placeholder="Sua senha">
+                    <input type="text" id="nome" placeholder="Seu nome" name="inputNome">
+                    <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail">
+                    <input type="password" id="senha" placeholder="Sua senha" name="inputSenha">
+                    
                     <!--
                     <select id="curso-aluno" name="curso-aluno">
                         <option value="" disabled selected>Selecione o Curso</option>

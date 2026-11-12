@@ -38,20 +38,21 @@
 
          <section class="principal-professores">
             <div class="professores-cadastrar">
-                <button id="abrir-modal" onclick="abrirModal()">Cadastrar Professor <i class="fa-solid fa-plus"></i></button>
+                <button type="button" id="abrir-modal" onclick="abrirModal()">Cadastrar Professor <i class="fa-solid fa-plus"></i></button>
             </div>
 
 
             <div id="cadastrar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="cadastrarProfessor">
                     <div class="btn-fechar">
-                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                        <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
                     <h1>Cadastrar <span>Professor</span></h1>
-                    <input type="text" id="nome" placeholder="Seu nome">
-                    <input type="email" id="email" placeholder="Seu e-mail">
-                    <input type="password" id="senha" placeholder="Sua senha">
-                    <select id="especialidade" name="especialidade">
+                    <input type="text" id="nome" placeholder="Seu nome" name="inputNome">
+                    <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail">
+                    <input type="password" id="senha" placeholder="Sua senha" name="inputSenha">
+                    <select id="especialidade" name="inputEspecialidade">
                     <option value="" disabled selected>Selecione a especialidade</option>
                         <option value="violao">Violão</option>
                         <option value="guitarra">Guitarra</option>
