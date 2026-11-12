@@ -70,7 +70,7 @@
                     <p>Violão Básico</p>
                     <p>Aprenda do zero ao primeiro acorde.</p>
                     <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
                         <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
                         <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
                     </div>
@@ -82,7 +82,7 @@
                     <p>Guitarra Avançada</p>
                     <p>Desenvolva suas habilidades.</p>
                     <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
                         <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
                         <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
                     </div>
@@ -92,7 +92,7 @@
                     <p>Piano para Todos</p>
                     <p>Aprenda as bases do piano.</p>
                     <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
                         <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
                         <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
                     </div>
@@ -102,7 +102,7 @@
                     <p>Bateria Profissional</p>
                     <p>Técnicas avançadas e muito mais.</p>
                     <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
                         <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
                         <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
                     </div>
