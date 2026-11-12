@@ -19,4 +19,12 @@
         mysqli_query($conexao,$consulta);
     }
 
+    function retornarAlunos(){
+
+        $conexao = conectarBD();
+        $consulta = "SELECT * FROM aluno";
+        $listarAlunos = mysqli_query($conexao, $consulta);
+        return $listarAlunos;
+    }
+
 ?>
