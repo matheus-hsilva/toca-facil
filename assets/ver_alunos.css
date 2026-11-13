@@ -63,7 +63,7 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    padding-bottom: 10px;
+    padding: 10px 0px 10px 0px;
     background-color: #212121;
     border: 2px solid transparent;
     border-radius: 10px;
@@ -76,7 +76,7 @@
 }
 
 .cards-item p {
-    padding-left: 20px;
+    padding: 0px 20px 0px 20px;
 }
 
 .cards-item p:nth-child(1) {
