@@ -86,7 +86,7 @@
                     <input type="text" id="nome" placeholder="Novo nome" name="inputNome" required>
                     <input type="email" id="email" placeholder="Novo e-mail" name="inputEmail" required>
                     <input type="password" id="senha" placeholder="Nova senha" name="inputSenha" required>
-                    <input type="hidden" id="codigo-aluno" name="InputCodigoAluno">
+                    <input type="hidden" id="codigo-aluno" name="inputCodigoAluno">
                     <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Atualizar</button>
                 </form>
             </div>

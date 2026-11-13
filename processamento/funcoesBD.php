@@ -21,6 +21,7 @@
     }
 
     function retornarProfessores(){
+
         $conexao = conectarBD();
         $consulta = "SELECT id, nome FROM professor";
         $listaProfessores = mysqli_query($conexao, $consulta);
@@ -28,6 +29,7 @@
     }
 
     function inserirCurso($nome, $descricao, $professorId){
+
         $conexao = conectarBD();
         $consulta = "INSERT INTO curso (nome, descricao, professor_id) VALUES ('$nome','$descricao','$professorId')";
         mysqli_query($conexao, $consulta);
@@ -39,6 +41,13 @@
         $consulta = "SELECT * FROM aluno";
         $listarAlunos = mysqli_query($conexao, $consulta);
         return $listarAlunos;
+    }
+
+    function alterarAluno($nome, $email, $senha, $alunoId) {
+
+        $conexao = conectarBD();
+        $consulta = "UPDATE aluno SET nome = '$nome', email = '$email', senha = '$senha' WHERE id = '$alunoId'";
+        mysqli_query($conexao, $consulta);
     }
 
 ?>

@@ -52,5 +52,22 @@
         header('Location:../view/Ver_cursos.php');
         die();
 
-    } 
+    }  else if ($_POST['acao'] == 'atualizarAluno'){
+        
+        if(!empty($_POST['inputNome']) && 
+        !empty($_POST['inputEmail']) &&
+        !empty($_POST['inputSenha']) &&
+        !empty($_POST['inputCodigoAluno'])) {
+        
+        $nome = $_POST['inputNome'];
+        $email = $_POST['inputEmail'];
+        $senha = $_POST['inputSenha'];
+        $alunoId = $_POST['inputCodigoAluno'];
+        }
+
+        alterarAluno($nome, $email, $senha, $alunoId);
+
+        header('Location:../view/Ver_alunos.php');
+        die();
+    }
 ?>
