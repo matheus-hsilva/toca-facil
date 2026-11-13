@@ -209,7 +209,7 @@
     color: #ff6800;
 }
 
-#cadastrar-modal {
+#cadastrar-modal, #atualizar-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -221,14 +221,16 @@
     backdrop-filter: blur(1px);
 }
 
-#cadastrar-modal .btn-fechar {
+#cadastrar-modal .btn-fechar, 
+#atualizar-modal .btn-fechar {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-#cadastrar-modal .fechar-modal {
+#cadastrar-modal .fechar-modal, 
+#atualizar-modal .fechar-modal {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,22 +244,26 @@
     cursor: pointer;
 }
 
-#cadastrar-modal .fechar-modal:hover {
+#cadastrar-modal .fechar-modal:hover,
+#atualizar-modal .fechar-modal:hover {
     border: 1px solid transparent;
     background-color: #ff6800;
     color: #090909;
 }
 
-#cadastrar-modal h1 {
+#cadastrar-modal h1, 
+#atualizar-modal h1 {
     color: #ffffff;
     font-size: 1.8rem;
 }
 
-#cadastrar-modal span {
+#cadastrar-modal span,
+#atualizar-modal span {
     color: #ff6800;
 }
 
-#cadastrar-modal .modal-formulario {
+#cadastrar-modal .modal-formulario,
+#atualizar-modal .modal-formulario {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -53,14 +53,12 @@
                         <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
                     <h1>Cadastrar <span>Aluno</span></h1>
-                    <input type="text" id="nome" placeholder="Seu nome" name="inputNome">
-                    <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail">
-                    <input type="password" id="senha" placeholder="Sua senha" name="inputSenha">
+                    <input type="text" id="nome" placeholder="Seu nome" name="inputNome" required>
+                    <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail" required>
+                    <input type="password" id="senha" placeholder="Sua senha" name="inputSenha" required>
                     <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
-            
-
             <div class="alunos-cards">
                 <?php
                     $listaAlunos = retornarAlunos();
@@ -69,14 +67,31 @@
                         echo "<p>" . $aluno["nome"] . "</p>";
                         echo "<p>" . $aluno["email"] . "</p>";
                         echo "<div class=\"item-btn\">";
-                        echo "<a href=\"#\"><i class=\"fa-solid fa-eye\"></i> Visualizar</a>";
-                        echo "<a href=\"#\"><i class=\"fa-solid fa-pencil\"></i> Editar</a>";
-                        echo "<a href=\"#\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</a>";
+                        echo "<button onclick=\"abrirModalAtualizar(" . $aluno["id"] . ")\"><i class=\"fa-solid fa-eye\"></i> Editar</button>";
+                        echo "<button onclick=\"abrirModalDeletar(" . $aluno["id"] . ")\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</button>";
                         echo "</div>";
                         echo "</div>";
                     }
                 ?>
             </div>
+
+
+            <div id="atualizar-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="atualizarAluno">
+                    <div class="btn-fechar">
+                        <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                    </div>
+                    <h1>Atualizar <span>Aluno</span></h1>
+                    <input type="text" id="nome" placeholder="Novo nome" name="inputNome" required>
+                    <input type="email" id="email" placeholder="Novo e-mail" name="inputEmail" required>
+                    <input type="password" id="senha" placeholder="Nova senha" name="inputSenha" required>
+                    <input type="hidden" id="codigo-aluno" name="InputCodigoAluno">
+                    <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Atualizar</button>
+                </form>
+            </div>
+
+            
         </section>
     </main>
 
