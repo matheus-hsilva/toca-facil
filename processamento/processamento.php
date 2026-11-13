@@ -69,5 +69,17 @@
 
         header('Location:../view/Ver_alunos.php');
         die();
+
+    } else if ($_POST['acao'] == 'excluirAluno'){
+        
+        if(!empty($_POST['inputCodigoExcluir'])) {
+
+        $alunoId = $_POST['inputCodigoExcluir'];
+        }
+
+        excluirAluno($alunoId);
+
+        header('Location:../view/Ver_alunos.php');
+        die();
     }
 ?>

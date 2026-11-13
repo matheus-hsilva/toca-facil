@@ -53,7 +53,7 @@
                     <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail">
                     <input type="password" id="senha" placeholder="Sua senha" name="inputSenha">
                     <select id="especialidade" name="inputEspecialidade">
-                    <option value="" disabled selected>Selecione a especialidade</option>
+                    <option disabled selected>Selecione a especialidade</option>
                         <option value="violao">Violão</option>
                         <option value="guitarra">Guitarra</option>
                         <option value="teclado">Teclado</option>
@@ -61,7 +61,7 @@
                         <option value="baixo">Baixo</option>
                         <option value="canto">Canto</option>
                     </select>
-                    <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
+                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
 

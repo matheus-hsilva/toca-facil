@@ -52,7 +52,12 @@
                     <input type="text" id="titulo" placeholder="Título da aula">
                     <textarea id="descricao" name="descricao" placeholder="Descrição do curso" required></textarea>
                     <input type="text" id="ordem" placeholder="Ordem da aula">
-                    <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
+                    <button type="submit" class="function excluirAluno($nome, $email, $senha, $alunoId) {
+
+        $conexao = conectarBD();
+        $consulta = "DELETE FROM aluno WHERE id = '$alunoId'";
+        mysqli_query($conexao, $consulta);
+    }"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
 

@@ -58,7 +58,7 @@
                     <input type="text" id="nome" placeholder="Nome do curso" name="inputNome">
                     <textarea id="descricao" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
                     <select id="professor" name="inputProfessorId" required>
-                    <option value="" disabled selected>Selecione o Professor</option>
+                    <option disabled selected>Selecione o Professor</option>
 
                     <?php
 
@@ -71,7 +71,7 @@
                         }
                     ?>
                 </select>
-                    <button type="submit" class="btn-cadastrar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
+                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
     

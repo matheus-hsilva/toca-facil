@@ -50,4 +50,11 @@
         mysqli_query($conexao, $consulta);
     }
 
+    function excluirAluno($alunoId) {
+
+        $conexao = conectarBD();
+        $consulta = "DELETE FROM aluno WHERE id = '$alunoId'";
+        mysqli_query($conexao, $consulta);
+    }
+
 ?>
