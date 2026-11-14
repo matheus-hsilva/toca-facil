@@ -26,6 +26,7 @@
                 <li id="ativo"><a href="Ver_cursos.php">Cursos</a></li>
                 <li><a href="Ver_professores.php">Professores</a></li>
                 <li><a href="Ver_alunos.php">Alunos</a></li>
+                <li><a href="Ver_categorias.php">Categorias</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
@@ -91,8 +92,8 @@
                         <p><?php echo $curso['descricao']; ?></p>
                         <div class="item-btn">
                             <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                            <button onclick="abrirModalAtualizarCurso('<?php echo $curso['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
-                            <button onclick="abrirModalExcluirCurso('<?php echo $curso['id']; ?>')"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                            <button onclick="abrirModalAtualizar('codigo-curso', '<?php echo $curso['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
+                            <button onclick="abrirModalExcluir('codigo-excluir-curso', '<?php echo $curso['id']; ?>')"><i class="fa-solid fa-trash-can"></i> Excluir</button>
                         </div>
                     </div>
                 <?php
@@ -104,7 +105,6 @@
             <div id="atualizar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <input type="hidden" name="acao" value="atualizarCurso">
-                    <input type="hidden" name="inputCodigoCurso" id="codigo-curso">
                     <div class="btn-fechar">
                         <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
@@ -123,15 +123,16 @@
                         <?php
                             mysqli_data_seek($listaProfessores, 0);
                             while ($professor = mysqli_fetch_assoc($listaProfessores)) {
-                        ?>
+                                ?>
                             <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
                                 <?php echo $professor['nome']; ?>
                             </option>
-                        <?php
+                            <?php
                             }
-                        ?>
+                            ?>
+                    <input type="hidden" name="inputCodigo" id="codigo-curso">
                     </select>
-                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Salvar alterações</button>
+                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Atualizar</button>
                 </form>
             </div>
 
@@ -139,7 +140,7 @@
             <div id="excluir-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <input type="hidden" name="acao" value="excluirCurso">
-                    <input type="hidden" name="inputCodigoExcluirCurso" id="codigo-excluir-curso">
+                    <input type="hidden" name="inputCodigoExcluir" id="codigo-excluir-curso">
                     <h1>Excluir <span>Curso</span></h1>
                     <p>Deseja realmente excluir este curso? As aulas dele também serão excluídas.</p>
                     <div class="formulario-btn">

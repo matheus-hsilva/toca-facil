@@ -80,7 +80,7 @@
 }
 
 .cards-item p:nth-child(1) {
-    margin-top: 10px;
+    margin-bottom: 5px;
     font-size: 0.9rem;
     color: #ffffff;
 }

@@ -21,6 +21,7 @@
                 <li><a href="Ver_cursos.php">Cursos</a></li>
                 <li><a href="Ver_professores.php">Professores</a></li>
                 <li><a href="Ver_alunos.php">Alunos</a></li>
+                <li><a href="Ver_categorias.php">Categorias</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">

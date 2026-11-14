@@ -1,5 +1,6 @@
 <?php 
     require "../processamento/funcoesBD.php";
+    $listaAlunos = retornarAlunos();
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,7 @@
                 <li><a href="Ver_cursos.php">Cursos</a></li>
                 <li><a href="Ver_professores.php">Professores</a></li>
                 <li id="ativo"><a href="Ver_alunos.php">Alunos</a></li>
+                <li><a href="Ver_categorias.php">Categorias</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
@@ -63,14 +65,13 @@
 
             <div class="alunos-cards">
                 <?php
-                    $listaAlunos = retornarAlunos();
                     while ($aluno = mysqli_fetch_assoc($listaAlunos)) {
                         echo "<div class=\"cards-item\">";
                         echo "<p>" . $aluno["nome"] . "</p>";
                         echo "<p>" . $aluno["email"] . "</p>";
                         echo "<div class=\"item-btn\">";
-                        echo "<button onclick=\"abrirModalAtualizar(" . $aluno["id"] . ")\"><i class=\"fa-solid fa-eye\"></i> Editar</button>";
-                        echo "<button onclick=\"abrirModalExcluir(" . $aluno["id"] . ")\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</button>";
+                        echo "<button onclick=\"abrirModalAtualizar('codigo-aluno', " . $aluno["id"] . ")\"><i class=\"fa-solid fa-eye\"></i> Editar</button>";
+                        echo "<button onclick=\"abrirModalExcluir('codigo-excluir-aluno', " . $aluno["id"] . ")\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</button>";
                         echo "</div>";
                         echo "</div>";
                     }
@@ -88,7 +89,7 @@
                     <input type="text" id="nome" placeholder="Novo nome" name="inputNome" required>
                     <input type="email" id="email" placeholder="Novo e-mail" name="inputEmail" required>
                     <input type="password" id="senha" placeholder="Nova senha" name="inputSenha" required>
-                    <input type="hidden" id="codigo-aluno" name="inputCodigoAluno">
+                    <input type="hidden" id="codigo-aluno" name="inputCodigo">
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Atualizar</button>
                 </form>
             </div>
@@ -99,7 +100,7 @@
                     <input type="hidden" name="acao" value="excluirAluno">
                     <h1>Excluir <span>Aluno</span></h1>
                     <p>Deseja realmente excluir esse aluno?</p>
-                    <input type="hidden" id="codigo-excluir" name="inputCodigoExcluir">
+                    <input type="hidden" id="codigo-excluir-aluno" name="inputCodigoExcluir">
                     <div class="formulario-btn">
                         <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
                         <button type="submit" class="btn-enviar"><i class="fa-solid fa-trash-can"></i> Excluir</button>

@@ -1,3 +1,8 @@
+<?php 
+    require "../processamento/funcoesBD.php";
+    $listaProfessores = retornarProfessores();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,6 +25,7 @@
                 <li><a href="Ver_cursos.php">Cursos</a></li>
                 <li id="ativo"><a href="Ver_professores.php">Professores</a></li>
                 <li><a href="Ver_alunos.php">Alunos</a></li>
+                <li><a href="Ver_categorias.php">Categorias</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
@@ -65,43 +71,59 @@
 
 
             <div class="professores-cards">
-                <div class="cards-item">
-                    <p>João Pereira</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde porro omnis eum minus accusamus nemo aspernatur, culpa, hic eligendi consequatur accusantium molestias mollitia ea provident, delectus possimus quae quo perferendis.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <p>Maria Souza</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quia, illum reprehenderit, ut ipsam vel suscipit ipsa, quas ab non blanditiis. Eius cupiditate architecto, esse quis incidunt tempora doloremque facere.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <p>Carlos Mender</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, laudantium voluptas veritatis aliquam omnis maiores libero ipsa provident suscipit, natus saepe temporibus soluta odit quibusdam dicta! Ullam quidem tempora sint.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <p>Lucas Almeida</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos veritatis facilis aliquid, corrupti, temporibus voluptate exercitationem illum optio quia harum maiores repellat minus sed ipsa suscipit asperiores animi. Sunt, nobis.</p>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
+                <?php
+                    while ($professor = mysqli_fetch_assoc($listaProfessores)) {
+                        echo "<div class=\"cards-item\">";
+                        echo "<p>" . $professor["nome"] . "</p>";
+                        echo "<p>" . $professor["email"] . "</p>";
+                        echo "<p> <span>Especialidade: </span>" . $professor["especialidade"] . "</p>";
+                        echo "<div class=\"item-btn\">";
+                        echo "<button onclick=\"abrirModalAtualizar('codigo-professor', " . $professor["id"] . ")\"><i class=\"fa-solid fa-eye\"></i> Editar</button>";
+                        echo "<button onclick=\"abrirModalExcluir('codigo-excluir-professor', " . $professor["id"] . ")\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</button>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                ?>
             </div>
+
+
+            <div id="atualizar-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="atualizarProfessor">
+                    <div class="btn-fechar">
+                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                    </div>
+                    <h1>Atualizar <span>Professor</span></h1>
+                    <input type="text" id="nome" placeholder="Novo nome" name="inputNome" required>
+                    <input type="email" id="email" placeholder="Novo e-mail" name="inputEmail" required>
+                    <input type="password" id="senha" placeholder="Nova senha" name="inputSenha" required>
+                    <select id="especialidade" name="inputEspecialidade">
+                    <option disabled selected>Selecione a especialidade</option>
+                        <option value="violao">Violão</option>
+                        <option value="guitarra">Guitarra</option>
+                        <option value="piano">Piano</option>
+                        <option value="bateria">Bateria</option>
+                    </select>
+                    <input type="hidden" id="codigo-professor" name="inputCodigo">
+                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Atualizar</button>
+                </form>
+            </div>
+
+
+            <div id="excluir-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="excluirProfessor">
+                    <h1>Excluir <span>Professor</span></h1>
+                    <p>Deseja realmente excluir esse professor?</p>
+                    <input type="hidden" id="codigo-excluir-professor" name="inputCodigoExcluir">
+                    <div class="formulario-btn">
+                        <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                        <button type="submit" class="btn-enviar"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                    </div>
+                </form>
+            </div>
+
+
         </section>
     </main>
 

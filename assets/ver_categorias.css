@@ -1,0 +1,185 @@
+.principal-hero {
+    height: 230px;
+}
+
+.hero-conteudo h1 {
+    font-style: normal;
+    font-size: 2.6rem;
+}
+
+.hero-conteudo h1 span {
+    font-style: italic;
+    color: #ff6800;;
+}
+
+.principal-categorias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-color: #090909;
+    padding: 1.3% 7%;
+}
+
+.categorias-cadastrar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.categorias-cadastrar button {
+    border: 1px solid #ff6800;
+    background-color: transparent;
+    color: #ff6800;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.categorias-cadastrar button i {
+    margin-left: 5px;
+}
+
+.categorias-cadastrar button:hover {
+    border: 1px solid transparent;
+    background-color: #ff6800;
+    color: #090909;
+}
+
+.modal-formulario input[type="file"]{
+    background-color: transparent;
+    border: none;
+}
+
+.categorias-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.cards-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 10px;
+    background-color: #212121;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.cards-item:hover {
+    border: 2px solid #ff6800;
+}
+
+.cards-item img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px 10px 5px 5px;
+}
+
+.cards-item p {
+    padding: 0px 20px 0px 20px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.item-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px 0px;
+}
+
+.item-btn a, button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #ff6800;
+    border: 1px solid #ff6800;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.item-btn button:last-child {
+    color: #d90808;
+    border: 1px solid #d90808;
+}
+
+.item-btn i {
+    margin-right: 5px;
+}
+
+.cards-item a:hover , button:hover {
+    color: #ffffff;
+    background-color: #ff6800;
+    border: 1px solid transparent;
+}
+
+.item-btn button:last-child:hover {
+    color: #ffffff;
+    background-color: #d90808;
+    border: 1px solid transparent;
+}
+
+.formulario-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.formulario-btn .btn-enviar {
+    width: 45%;
+    background-color: #d90808;
+    color: #090909;
+}
+
+.formulario-btn .btn-enviar:hover {
+    background-color: transparent;
+    border: 1px solid #d90808;
+    color: #d90808;
+}
+
+.btn-cancelar {
+    width: 45%;
+    height: 58px;
+    margin-top: 5px;
+    background-color: #ff6800;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #111111;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: transparent;
+    border: 1px solid #ff6800;
+    color: #ff6800;
+}
+
+.modal-formulario select:invalid {
+    color: #ffffffba;
+}
+
+.modal-formulario select:disabled {
+    color: #ffffffba;
+    opacity: 1;
+}

@@ -2,34 +2,13 @@ function abrirModal() {
     document.getElementById("cadastrar-modal").style.display = "block";
 }
 
-function abrirModalAtualizar(id) {
-    document.getElementById("codigo-aluno").value = id;
+function abrirModalAtualizar(campo, id) {
+    document.getElementById(campo).value = id;
     document.getElementById("atualizar-modal").style.display = "block";
 }
 
-function abrirModalExcluir(id) {
-    document.getElementById("codigo-excluir").value = id;
-    document.getElementById("excluir-modal").style.display = "block";
-}
-
-function abrirModalAtualizarAula(id) {
-    document.getElementById("codigo-aula").value = id;
-    document.getElementById("atualizar-modal").style.display = "block";
-}
-
-function abrirModalExcluirAula(id) {
-    document.getElementById("codigo-excluir-aula").value = id;
-    document.getElementById("excluir-modal").style.display = "block";
-}
-
-function abrirModalAtualizarCurso(id) {
-    document.getElementById("codigo-curso").value = id;
-    filtrarProfessores("categoria-curso", "professor-curso");
-    document.getElementById("atualizar-modal").style.display = "block";
-}
-
-function abrirModalExcluirCurso(id) {
-    document.getElementById("codigo-excluir-curso").value = id;
+function abrirModalExcluir(campo, id) {
+    document.getElementById(campo).value = id;
     document.getElementById("excluir-modal").style.display = "block";
 }
 

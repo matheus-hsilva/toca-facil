@@ -2,6 +2,8 @@
     require "../processamento/funcoesBD.php";
     $cursoId = $_GET['id'];
     $listaAulas = retornarAulas($cursoId);
+    $ListaCurso = retornarNomeCurso($cursoId);
+    $nomeCurso = mysqli_fetch_assoc($ListaCurso);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,6 +27,7 @@
                 <li id="ativo"><a href="Ver_cursos.php">Cursos</a></li>
                 <li><a href="Ver_professores.php">Professores</a></li>
                 <li><a href="Ver_alunos.php">Alunos</a></li>
+                <li><a href="Ver_categorias.php">Categorias</a></li>
             </ul>
         </nav>
         <nav class="cabecalho-sair">
@@ -36,14 +39,15 @@
         <section class="principal-hero">
             <img src="../assets/images/login.png" alt="Foto do Hero">
             <div class="hero-conteudo">
-                <h1>Aulas do Curso</h1>  
+                <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-left-long"></i> Voltar</a>
+                <h1>Aulas do Curso - <?php echo $nomeCurso['nome']?></h1>  
                 <p>Aprenda os primeiros acordes e músicas para começar a tocar um instrumento do zero!</p>
             </div>
         </section>
 
         <section class="principal-aulas">
             <div class="aulas-cadastrar">
-                <h1>Aulas do Curso</h1>
+                <h1>Aulas do <?php echo $nomeCurso['nome']?></h1>
                 <button id="abrir-modal" onclick="abrirModal()">Cadastrar Aula <i class="fa-solid fa-plus"></i></button>
             </div>
 
@@ -77,11 +81,11 @@
                             <p><?php echo $aula['ordem']; ?></p>
                             <p><?php echo $aula['titulo']; ?></p>
                             <p><?php echo $aula['descricao']; ?></p>
-                            <p><i class="fa-regular fa-clock"></i><?php echo $aula['duracao']; ?> min</p>
+                            <p><i class="fa-regular fa-clock"></i> <?php echo $aula['duracao']; ?> min</p>
                         </div>
                         <div class="item-btn">
-                            <button type="button" onclick="abrirModalAtualizarAula('<?php echo $aula['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
-                            <button type="button" onclick="abrirModalExcluirAula('<?php echo $aula['id']; ?>')"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                            <button type="button" onclick="abrirModalAtualizar('codigo-aula', '<?php echo $aula['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
+                            <button type="button" onclick="abrirModalExcluir('codigo-excluir-aula', '<?php echo $aula['id']; ?>')"><i class="fa-solid fa-trash-can"></i> Excluir</button>
                         </div>
                     </div>
                 <?php
@@ -98,13 +102,13 @@
                         </button>
                     </div>
                     <input type="hidden" name="acao" value="atualizarAula">
-                    <input type="hidden" name="inputCodigoAula" id="codigo-aula">
                     <input type="hidden" name="inputCursoId" value="<?php echo $cursoId; ?>">
                     <h1>Editar <span>Aula</span></h1>
                     <input type="text" name="inputTitulo" id="titulo-aula" placeholder="Título da aula" required>
                     <textarea name="inputDescricao" id="descricao-aula" placeholder="Descrição da aula" required></textarea>
                     <input type="number" name="inputOrdem" id="ordem-aula" placeholder="Ordem da aula" min="1" required>
                     <input type="number" name="inputDuracao" id="duracao-aula" placeholder="Duração (em minutos)" min="1" required>
+                    <input type="hidden" name="inputCodigo" id="codigo-aula">
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Salvar alterações</button>
                 </form>
             </div>
@@ -116,7 +120,7 @@
                     <input type="hidden" name="inputCursoId" value="<?php echo $cursoId; ?>">
                     <h1>Excluir <span>Aula</span></h1>
                     <p>Deseja realmente excluir esta aula?</p>
-                    <input type="hidden" id="codigo-excluir-aula" name="inputCodigoExcluirAula">
+                    <input type="hidden" id="codigo-excluir-aula" name="inputCodigoExcluir">
                     <div class="formulario-btn">
                         <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
                         <button type="submit" class="btn-enviar"><i class="fa-solid fa-trash-can"></i> Excluir</button>

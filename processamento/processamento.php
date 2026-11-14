@@ -2,7 +2,7 @@
     session_start();
     require "funcoesBD.php";
 
-    if($_POST['acao'] == 'cadastrarAluno'){
+    if ($_POST['acao'] == 'cadastrarAluno'){
 
         if(!empty($_POST['inputNome']) && 
         !empty($_POST['inputEmail']) &&
@@ -56,13 +56,13 @@
 
     } else if ($_POST['acao'] == 'atualizarCurso') {
 
-        if (!empty($_POST['inputCodigoCurso']) &&
+        if (!empty($_POST['inputCodigo']) &&
             !empty($_POST['inputNome']) &&
             !empty($_POST['inputDescricao']) &&
             !empty($_POST['inputProfessorId']) &&
             !empty($_POST['inputCategoria'])) {
 
-            $cursoId = $_POST['inputCodigoCurso'];
+            $cursoId = $_POST['inputCodigo'];
             $nome = $_POST['inputNome'];
             $descricao = $_POST['inputDescricao'];
             $professorId = $_POST['inputProfessorId'];
@@ -76,9 +76,9 @@
 
     } else if ($_POST['acao'] == 'excluirCurso') {
 
-        if (!empty($_POST['inputCodigoExcluirCurso'])) {
+        if (!empty($_POST['inputCodigoExcluir'])) {
 
-            $cursoId = $_POST['inputCodigoExcluirCurso'];
+            $cursoId = $_POST['inputCodigoExcluir'];
             
             excluirCurso($cursoId);
         }
@@ -107,14 +107,14 @@
 
     } else if ($_POST['acao'] == 'atualizarAula') {
         if (
-            !empty($_POST['inputCodigoAula']) &&
+            !empty($_POST['inputCodigo']) &&
             !empty($_POST['inputCursoId']) &&
             !empty($_POST['inputTitulo']) &&
             !empty($_POST['inputDescricao']) &&
             !empty($_POST['inputOrdem']) &&
             !empty($_POST['inputDuracao'])) {
 
-            $aulaId = $_POST['inputCodigoAula'];
+            $aulaId = $_POST['inputCodigo'];
             $cursoId = $_POST['inputCursoId'];
             $titulo = $_POST['inputTitulo'];
             $descricao = $_POST['inputDescricao'];
@@ -129,10 +129,10 @@
 
     } else if ($_POST['acao'] == 'excluirAula') {
         if (
-            !empty($_POST['inputCodigoExcluirAula']) &&
+            !empty($_POST['inputCodigoExcluir']) &&
             !empty($_POST['inputCursoId'])) {
                 
-            $aulaId = $_POST['inputCodigoExcluirAula'];
+            $aulaId = $_POST['inputCodigoExcluir'];
             $cursoId = $_POST['inputCursoId'];
 
             excluirAula($aulaId);
@@ -146,12 +146,12 @@
         if(!empty($_POST['inputNome']) && 
         !empty($_POST['inputEmail']) &&
         !empty($_POST['inputSenha']) &&
-        !empty($_POST['inputCodigoAluno'])) {
+        !empty($_POST['inputCodigo'])) {
         
         $nome = $_POST['inputNome'];
         $email = $_POST['inputEmail'];
         $senha = $_POST['inputSenha'];
-        $alunoId = $_POST['inputCodigoAluno'];
+        $alunoId = $_POST['inputCodigo'];
         }
 
         alterarAluno($nome, $email, $senha, $alunoId);
@@ -164,11 +164,91 @@
         if(!empty($_POST['inputCodigoExcluir'])) {
 
         $alunoId = $_POST['inputCodigoExcluir'];
-        }
-
+        
         excluirAluno($alunoId);
+
+        }
 
         header('Location:../view/Ver_alunos.php');
         die();
+
+    } else if ($_POST['acao'] == 'atualizarProfessor'){
+        
+        if(!empty($_POST['inputNome']) && 
+        !empty($_POST['inputEmail']) &&
+        !empty($_POST['inputSenha']) &&
+        !empty($_POST['inputEspecialidade']) &&
+        !empty($_POST['inputCodigo'])) {
+        
+        $nome = $_POST['inputNome'];
+        $email = $_POST['inputEmail'];
+        $senha = $_POST['inputSenha'];
+        $especialidade = $_POST['inputEspecialidade'];
+        $professorId = $_POST['inputCodigo'];
+        }
+
+        alterarProfessor($nome, $email, $senha, $especialidade, $professorId);
+
+        header('Location:../view/Ver_professores.php');
+        die();
+
+    } else if ($_POST['acao'] == 'excluirProfessor'){
+        
+        if(!empty($_POST['inputCodigoExcluir'])) {
+
+        $professorId = $_POST['inputCodigoExcluir'];
+        
+        excluirProfessor($professorId);
+
+        }
+
+        header('Location:../view/Ver_professores.php');
+        die();
+
+    } else if ($_POST['acao'] == 'cadastrarCategoria'){
+
+        if(!empty($_POST['inputNome']) && 
+        $_FILES['inputImagem']['error'] == 0) {
+
+        $nome = $_POST['inputNome'];
+        $imagem = file_get_contents($_FILES['inputImagem']['tmp_name']);
+        
+        inserirCategoria($nome, $imagem);
+
+        }
+
+        header('Location:../view/Ver_categorias.php');
+        die();
+
+    } else if ($_POST['acao'] == 'atualizarCategoria'){
+
+        if (!empty($_POST['inputNome']) && 
+        !empty($_POST['inputCodigo']) &&
+        $_FILES['inputImagem']['error'] == 0) {
+
+        $nome = $_POST['inputNome'];
+        $categoriaId = $_POST['inputCodigo'];
+        $imagem = file_get_contents($_FILES['inputImagem']['tmp_name']);
+        
+        alterarCategoria($nome, $imagem, $categoriaId);
+
+        }
+
+        header('Location:../view/Ver_categorias.php');
+        die();
+
+    } else if ($_POST['acao'] == 'excluirCategoria'){
+    
+        if(!empty($_POST['inputCodigoExcluir'])) {
+
+        $categoriaId = $_POST['inputCodigoExcluir'];
+        
+        excluirCategoria($categoriaId);
+
+        }
+
+        header('Location:../view/Ver_categorias.php');
+        die();
+
     }
 ?>
