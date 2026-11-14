@@ -52,6 +52,60 @@
         header('Location:../view/Ver_cursos.php');
         die();
 
+    } else if ($_POST['acao'] == 'cadastrarAula') {
+            if (!empty($_POST['inputCursoId']) &&
+                !empty($_POST['inputTitulo']) &&
+                !empty($_POST['inputDescricao']) &&
+                !empty($_POST['inputOrdem']) &&
+                !empty($_POST['inputDuracao'])) {
+
+                $cursoId = $_POST['inputCursoId'];
+                $titulo = $_POST['inputTitulo'];
+                $descricao = $_POST['inputDescricao'];
+                $ordem = $_POST['inputOrdem'];
+                $duracao = $_POST['inputDuracao'];
+
+                inserirAula($cursoId, $titulo, $descricao, $ordem, $duracao);
+            }
+
+            header('Location:../view/Ver_aulas.php?id=' . $cursoId);
+            die();
+
+    } else if ($_POST['acao'] == 'atualizarAula') {
+        if (
+            !empty($_POST['inputCodigoAula']) &&
+            !empty($_POST['inputCursoId']) &&
+            !empty($_POST['inputTitulo']) &&
+            !empty($_POST['inputDescricao']) &&
+            !empty($_POST['inputOrdem']) &&
+            !empty($_POST['inputDuracao'])) {
+
+            $aulaId = $_POST['inputCodigoAula'];
+            $cursoId = $_POST['inputCursoId'];
+            $titulo = $_POST['inputTitulo'];
+            $descricao = $_POST['inputDescricao'];
+            $ordem = $_POST['inputOrdem'];
+            $duracao = $_POST['inputDuracao'];
+
+            alterarAula($titulo, $descricao, $ordem, $duracao, $aulaId);
+        }
+
+        header('Location:../view/Ver_aulas.php?id=' . $cursoId);
+        die();
+
+    } else if ($_POST['acao'] == 'excluirAula') {
+        if (
+            !empty($_POST['inputCodigoExcluirAula']) &&
+            !empty($_POST['inputCursoId'])) {
+                
+            $aulaId = $_POST['inputCodigoExcluirAula'];
+            $cursoId = $_POST['inputCursoId'];
+            excluirAula($aulaId);
+        }
+
+        header('Location:../view/Ver_aulas.php?id=' . $cursoId);
+        die();
+
     }  else if ($_POST['acao'] == 'atualizarAluno'){
         
         if(!empty($_POST['inputNome']) && 

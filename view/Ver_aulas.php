@@ -1,3 +1,8 @@
+<?php
+    require "../processamento/funcoesBD.php";
+    $cursoId = $_GET['id'];
+    $listaAulas = retornarAulas($cursoId);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -42,63 +47,96 @@
                 <button id="abrir-modal" onclick="abrirModal()">Cadastrar Aula <i class="fa-solid fa-plus"></i></button>
             </div>
 
-
             <div id="cadastrar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <div class="btn-fechar">
-                        <button class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                        <button type="button" class="fechar-modal" onclick="fecharModal()">
+                            <i class="fa-solid fa-x"></i>
+                        </button>
                     </div>
+                    <input type="hidden" name="acao" value="cadastrarAula">
+                    <input type="hidden" name="inputCursoId" value="<?php echo $cursoId; ?>">
                     <h1>Cadastrar <span>Aula</span></h1>
-                    <input type="text" id="titulo" placeholder="Título da aula">
-                    <textarea id="descricao" name="descricao" placeholder="Descrição do curso" required></textarea>
-                    <input type="text" id="ordem" placeholder="Ordem da aula">
-                    <button type="submit" class="function excluirAluno($nome, $email, $senha, $alunoId) {
+                    <input type="text" name="inputTitulo" placeholder="Título da aula" required>
+                    <textarea name="inputDescricao" placeholder="Descrição da aula" required></textarea>
+                    <input type="number" name="inputOrdem" placeholder="Ordem da aula" required>
+                    <input type="number" name="inputDuracao" placeholder="Duração (em minutos)" required>
+                    <button type="submit" class="btn-enviar">
+                        <i class="fa-solid fa-plus"></i> Cadastrar
+                    </button>
 
-        $conexao = conectarBD();
-        $consulta = "DELETE FROM aluno WHERE id = '$alunoId'";
-        mysqli_query($conexao, $consulta);
-    }"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
+                </form>
+            </div>
+
+            <div id="atualizar-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <div class="btn-fechar">
+                        <button type="button" class="fechar-modal" onclick="fecharModal()">
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                    </div>
+                    <input type="hidden" name="acao" value="atualizarAula">
+                    <input type="hidden" name="inputCodigoAula" id="codigo-aula">
+                    <input type="hidden" name="inputCursoId" value="<?php echo $cursoId; ?>">
+                    <h1>Editar <span>Aula</span></h1>
+                    <input type="text" name="inputTitulo" id="titulo-aula" placeholder="Título da aula" required>
+                    <textarea name="inputDescricao" id="descricao-aula" placeholder="Descrição da aula" required></textarea>
+                    <input type="number" name="inputOrdem" id="ordem-aula" placeholder="Ordem da aula" min="1" required>
+                    <input type="number" name="inputDuracao" id="duracao-aula" placeholder="Duração (em minutos)" min="1" required>
+                    <button type="submit" class="btn-enviar">
+                        <i class="fa-solid fa-pencil"></i> Salvar alterações
+                    </button>
+                </form>
+            </div>
+
+            <div id="excluir-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="excluirAula">
+                    <h1>Excluir <span>Aula</span></h1>
+                    <p>Deseja realmente excluir esta aula?</p>
+                    <input type="hidden" id="codigo-excluir-aula" name="inputCodigoExcluirAula">
+                    <div class="formulario-btn">
+                        <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                        <button type="submit" class="btn-enviar">
+                            <i class="fa-solid fa-trash-can"></i> Excluir
+                        </button>
+                    </div>
                 </form>
             </div>
 
 
             <div class="aulas-cards">
-                <div class="cards-item">
-                    <div class="item-info">
-                        <p>1</p>
-                        <p>Introdução</p>
-                        <p>Aprenda do zero.</p>
-                        <p><i class="fa-regular fa-clock"></i> 12 min</p>
+                <?php
+                    while ($aula = mysqli_fetch_assoc($listaAulas)) {
+                ?>
+                    <div class="cards-item">
+                        <div class="item-info">
+                            <p><?php echo $aula['ordem']; ?></p>
+                            <p><?php echo htmlspecialchars($aula['titulo']); ?></p>
+                            <p><?php echo htmlspecialchars($aula['descricao']); ?></p>
+                            <p>
+                                <i class="fa-regular fa-clock"></i>
+                                <?php echo $aula['duracao']; ?> min
+                            </p>
+                        </div>
+                        <div class="item-btn">
+                            <button type="button" onclick="abrirModalAtualizarAula(
+                                '<?php echo $aula['id']; ?>',
+                                '<?php echo htmlspecialchars(addslashes($aula['titulo'])); ?>',
+                                '<?php echo htmlspecialchars(addslashes($aula['descricao'])); ?>',
+                                '<?php echo $aula['ordem']; ?>',
+                                '<?php echo $aula['duracao']; ?>'
+                            )">
+                                <i class="fa-solid fa-pencil"></i> Editar
+                                </button>
+                            <button type="button" onclick="abrirModalExcluirAula('<?php echo $aula['id']; ?>')">
+                                <i class="fa-solid fa-trash-can"></i> Excluir
+                            </button>
+                        </div>
                     </div>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <div class="item-info">
-                        <p>2</p>
-                        <p>Música: Nada mais</p>
-                        <p>Toque essa música passo a passo.</p>
-                        <p><i class="fa-regular fa-clock"></i> 12 min</p>
-                    </div>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <div class="item-info">
-                        <p>3</p>
-                        <p>Música: Paralelas</p>
-                        <p>Toque essa música passo a passo.</p>
-                        <p><i class="fa-regular fa-clock"></i> 12 min</p>
-                    </div>
-                    <div class="item-btn">
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
+                <?php
+                    }
+                ?>
             </div>
         </section>
     </main>

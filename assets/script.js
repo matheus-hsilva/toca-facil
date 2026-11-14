@@ -38,3 +38,17 @@ modalExcluir.addEventListener('click', (e) => {
         fecharModal();
     } 
 });
+
+function abrirModalAtualizarAula(id, titulo, descricao, ordem, duracao) {
+    document.getElementById("codigo-aula").value = id;
+    document.getElementById("titulo-aula").value = titulo;
+    document.getElementById("descricao-aula").value = descricao;
+    document.getElementById("ordem-aula").value = ordem;
+    document.getElementById("duracao-aula").value = duracao;
+    document.getElementById("atualizar-modal").style.display = "block";
+}
+
+function abrirModalExcluirAula(id) {
+    document.getElementById("codigo-excluir-aula").value = id;
+    document.getElementById("excluir-modal").style.display = "flex";
+}

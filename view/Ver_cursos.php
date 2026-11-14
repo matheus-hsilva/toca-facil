@@ -86,7 +86,7 @@
                         <p><?php echo htmlspecialchars($curso['nome']); ?></p>
                         <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
                         <div class="item-btn">
-                            <a href="Ver_aulas.php">
+                            <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>">
                                 <i class="fa-solid fa-eye"></i> Visualizar
                             </a>
                             <a href="#">

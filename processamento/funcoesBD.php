@@ -64,4 +64,36 @@
         mysqli_query($conexao, $consulta);
     }
 
+    function inserirAula($cursoId, $titulo, $descricao, $ordem, $duracao){
+        $conexao = conectarBD();
+        $consulta = "INSERT INTO aula (curso_id, titulo, descricao, ordem, duracao) VALUES ('$cursoId','$titulo','$descricao','$ordem','$duracao')";
+        mysqli_query($conexao, $consulta);
+    }
+
+    function retornarAulas($cursoId){
+    $conexao = conectarBD();
+    $consulta = "SELECT * FROM aula
+                 WHERE curso_id = '$cursoId'
+                 ORDER BY ordem ASC";
+    $listaAulas = mysqli_query($conexao, $consulta);
+    return $listaAulas;
+    }
+
+    function alterarAula($titulo, $descricao, $ordem, $duracao, $aulaId){
+        $conexao = conectarBD();
+        $consulta = "UPDATE aula SET
+                 titulo = '$titulo',
+                 descricao = '$descricao',
+                 ordem = '$ordem',
+                 duracao = '$duracao'
+                 WHERE id = '$aulaId'";
+        mysqli_query($conexao, $consulta);
+    }
+
+    function excluirAula($aulaId) {
+        $conexao = conectarBD();
+        $consulta = "DELETE FROM aula WHERE id = '$aulaId'";
+        mysqli_query($conexao, $consulta);
+}
+
 ?>
