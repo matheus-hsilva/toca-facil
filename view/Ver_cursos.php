@@ -1,7 +1,7 @@
 <?php
     require "../processamento/funcoesBD.php";
     $listaProfessores = retornarProfessores();
-
+    $listaCursos = retornarCursos();
 ?>
 
 <!DOCTYPE html>
@@ -76,48 +76,33 @@
             </div>
     
 
+            
             <div class="cursos-cards">
-                <div class="cards-item">
-                    <img src="../assets/images/curso violao.png" alt="Foto de um violão">
-                    <p>Violão Básico</p>
-                    <p>Aprenda do zero ao primeiro acorde.</p>
-                    <div class="item-btn">
-                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                <?php
+                    while ($curso = mysqli_fetch_assoc($listaCursos)) {
+                ?>
+                    <div class="cards-item">
+                        <img src="../assets/images/curso violao.png" alt="Imagem do curso">
+                        <p><?php echo htmlspecialchars($curso['nome']); ?></p>
+                        <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
+                        <div class="item-btn">
+                            <a href="Ver_aulas.php">
+                                <i class="fa-solid fa-eye"></i> Visualizar
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-pencil"></i> Editar
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-trash-can"></i> Excluir
+                            </a>
+                        </div>
+
                     </div>
-                </div>
-                <div class="cards-item">
-                    <img src="../assets/images/curso guitarra.png" alt="Foto de uma guitarra">
-                    <p>Guitarra Avançada</p>
-                    <p>Desenvolva suas habilidades.</p>
-                    <div class="item-btn">
-                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <img src="../assets/images/curso piano.png" alt="Foto de um piano">
-                    <p>Piano para Todos</p>
-                    <p>Aprenda as bases do piano.</p>
-                    <div class="item-btn">
-                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
-                <div class="cards-item">
-                    <img src="../assets/images/curso bateria.png" alt="Foto de uma bateria">
-                    <p>Bateria Profissional</p>
-                    <p>Técnicas avançadas e muito mais.</p>
-                    <div class="item-btn">
-                        <a href="Ver_aulas.php"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                        <a href="#"><i class="fa-solid fa-pencil"></i> Editar</a>
-                        <a href="#"><i class="fa-solid fa-trash-can"></i> Excluir</a>
-                    </div>
-                </div>
+                <?php
+                    }
+                ?>
             </div>
+            
         </section>
     </main>
 

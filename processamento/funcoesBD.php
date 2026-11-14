@@ -35,6 +35,13 @@
         mysqli_query($conexao, $consulta);
     }
 
+    function retornarCursos(){
+        $conexao = conectarBD();
+        $consulta = "SELECT id, nome, descricao, imagem FROM curso";
+        $listaCursos = mysqli_query($conexao, $consulta);
+        return $listaCursos;
+    }
+
     function retornarAlunos(){
 
         $conexao = conectarBD();
