@@ -135,12 +135,6 @@
     border: 1px solid transparent;
 } 
 
-#excluir-modal p { 
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #ffffff;
-}
-
 .formulario-btn {
     display: flex;
     justify-content: space-between;

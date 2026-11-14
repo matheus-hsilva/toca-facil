@@ -64,9 +64,31 @@
                     <button type="submit" class="btn-enviar">
                         <i class="fa-solid fa-plus"></i> Cadastrar
                     </button>
-
                 </form>
             </div>
+
+
+            <div class="aulas-cards">
+                <?php
+                    while ($aula = mysqli_fetch_assoc($listaAulas)) {
+                ?>
+                    <div class="cards-item">
+                        <div class="item-info">
+                            <p><?php echo $aula['ordem']; ?></p>
+                            <p><?php echo $aula['titulo']; ?></p>
+                            <p><?php echo $aula['descricao']; ?></p>
+                            <p><i class="fa-regular fa-clock"></i><?php echo $aula['duracao']; ?> min</p>
+                        </div>
+                        <div class="item-btn">
+                            <button type="button" onclick="abrirModalAtualizarAula('<?php echo $aula['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
+                            <button type="button" onclick="abrirModalExcluirAula('<?php echo $aula['id']; ?>')"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                        </div>
+                    </div>
+                <?php
+                    }
+                ?>
+            </div>
+
 
             <div id="atualizar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
@@ -83,11 +105,10 @@
                     <textarea name="inputDescricao" id="descricao-aula" placeholder="Descrição da aula" required></textarea>
                     <input type="number" name="inputOrdem" id="ordem-aula" placeholder="Ordem da aula" min="1" required>
                     <input type="number" name="inputDuracao" id="duracao-aula" placeholder="Duração (em minutos)" min="1" required>
-                    <button type="submit" class="btn-enviar">
-                        <i class="fa-solid fa-pencil"></i> Salvar alterações
-                    </button>
+                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Salvar alterações</button>
                 </form>
             </div>
+
 
             <div id="excluir-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
@@ -98,47 +119,12 @@
                     <input type="hidden" id="codigo-excluir-aula" name="inputCodigoExcluirAula">
                     <div class="formulario-btn">
                         <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
-                        <button type="submit" class="btn-enviar">
-                            <i class="fa-solid fa-trash-can"></i> Excluir
-                        </button>
+                        <button type="submit" class="btn-enviar"><i class="fa-solid fa-trash-can"></i> Excluir</button>
                     </div>
                 </form>
             </div>
 
 
-            <div class="aulas-cards">
-                <?php
-                    while ($aula = mysqli_fetch_assoc($listaAulas)) {
-                ?>
-                    <div class="cards-item">
-                        <div class="item-info">
-                            <p><?php echo $aula['ordem']; ?></p>
-                            <p><?php echo htmlspecialchars($aula['titulo']); ?></p>
-                            <p><?php echo htmlspecialchars($aula['descricao']); ?></p>
-                            <p>
-                                <i class="fa-regular fa-clock"></i>
-                                <?php echo $aula['duracao']; ?> min
-                            </p>
-                        </div>
-                        <div class="item-btn">
-                            <button type="button" onclick="abrirModalAtualizarAula(
-                                '<?php echo $aula['id']; ?>',
-                                '<?php echo htmlspecialchars(addslashes($aula['titulo'])); ?>',
-                                '<?php echo htmlspecialchars(addslashes($aula['descricao'])); ?>',
-                                '<?php echo $aula['ordem']; ?>',
-                                '<?php echo $aula['duracao']; ?>'
-                            )">
-                                <i class="fa-solid fa-pencil"></i> Editar
-                                </button>
-                            <button type="button" onclick="abrirModalExcluirAula('<?php echo $aula['id']; ?>')">
-                                <i class="fa-solid fa-trash-can"></i> Excluir
-                            </button>
-                        </div>
-                    </div>
-                <?php
-                    }
-                ?>
-            </div>
         </section>
     </main>
 

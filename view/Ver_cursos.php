@@ -70,7 +70,7 @@
                             while ($professor = mysqli_fetch_assoc($listaProfessores)) {
                         ?>
                             <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
-                                <?php echo htmlspecialchars($professor['nome']); ?>
+                                <?php echo $professor['nome']; ?>
                             </option>
                         <?php
                             }
@@ -80,6 +80,27 @@
                 </form>
             </div>
 
+
+             <div class="cursos-cards">
+                <?php
+                    while ($curso = mysqli_fetch_assoc($listaCursos)) {
+                ?>
+                    <div class="cards-item">
+                        <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">
+                        <p><?php echo $curso['nome']; ?></p>
+                        <p><?php echo $curso['descricao']; ?></p>
+                        <div class="item-btn">
+                            <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                            <button onclick="abrirModalAtualizarCurso('<?php echo $curso['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
+                            <button onclick="abrirModalExcluirCurso('<?php echo $curso['id']; ?>')"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                        </div>
+                    </div>
+                <?php
+                    }
+                ?>
+            </div>
+
+
             <div id="atualizar-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <input type="hidden" name="acao" value="atualizarCurso">
@@ -88,8 +109,8 @@
                         <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
                     </div>
                     <h1>Editar <span>Curso</span></h1>
-                    <input type="text" id="nome-curso" placeholder="Nome do curso" name="inputNome" required>
-                    <textarea id="descricao-curso" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
+                    <input type="text" placeholder="Nome do curso" name="inputNome" required>
+                    <textarea name="inputDescricao" placeholder="Descrição do curso" required></textarea>
                     <select id="categoria-curso" name="inputCategoria" onchange="filtrarProfessores('categoria-curso', 'professor-curso')" required>
                         <option value="" disabled selected>Selecione a categoria</option>
                         <option value="violao">Violão</option>
@@ -104,7 +125,7 @@
                             while ($professor = mysqli_fetch_assoc($listaProfessores)) {
                         ?>
                             <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
-                                <?php echo htmlspecialchars($professor['nome']); ?>
+                                <?php echo $professor['nome']; ?>
                             </option>
                         <?php
                             }
@@ -113,6 +134,7 @@
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Salvar alterações</button>
                 </form>
             </div>
+
 
             <div id="excluir-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
@@ -127,39 +149,6 @@
                 </form>
             </div>
     
-
-            
-            <div class="cursos-cards">
-                <?php
-                    while ($curso = mysqli_fetch_assoc($listaCursos)) {
-                ?>
-                    <div class="cards-item">
-                        <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">
-                        <p><?php echo htmlspecialchars($curso['nome']); ?></p>
-                        <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
-                        <div class="item-btn">
-                            <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>">
-                                <i class="fa-solid fa-eye"></i> Visualizar
-                            </a>
-                            <a href="#" onclick="abrirModalAtualizarCurso(
-                                '<?php echo $curso['id']; ?>',
-                                '<?php echo htmlspecialchars(addslashes($curso['nome'])); ?>',
-                                '<?php echo htmlspecialchars(addslashes($curso['descricao'])); ?>',
-                                '<?php echo $curso['professor_id']; ?>',
-                                '<?php echo $curso['categoria']; ?>'
-                            ); return false;">
-                                <i class="fa-solid fa-pencil"></i> Editar
-                            </a>
-                            <a href="#" onclick="abrirModalExcluirCurso('<?php echo $curso['id']; ?>'); return false;">
-                                <i class="fa-solid fa-trash-can"></i> Excluir
-                            </a>
-                        </div>
-
-                    </div>
-                <?php
-                    }
-                ?>
-            </div>
             
         </section>
     </main>

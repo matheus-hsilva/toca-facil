@@ -79,6 +79,7 @@
         if (!empty($_POST['inputCodigoExcluirCurso'])) {
 
             $cursoId = $_POST['inputCodigoExcluirCurso'];
+            
             excluirCurso($cursoId);
         }
 
@@ -133,6 +134,7 @@
                 
             $aulaId = $_POST['inputCodigoExcluirAula'];
             $cursoId = $_POST['inputCursoId'];
+
             excluirAula($aulaId);
         }
 

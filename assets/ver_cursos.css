@@ -104,7 +104,7 @@
     padding: 10px 20px 0px;
 }
 
-.item-btn a {
+.item-btn a, button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,12 +112,14 @@
     font-size: 0.8rem;
     color: #ff6800;
     border: 1px solid #ff6800;
+    background-color: transparent;
     border-radius: 6px;
     padding: 6px 8px;
+    cursor: pointer;
     transition: 0.4s;
 }
 
-.item-btn a:last-child {
+.item-btn button:last-child {
     color: #d90808;
     border: 1px solid #d90808;
 }
@@ -126,13 +128,13 @@
     margin-right: 5px;
 }
 
-.cards-item a:hover {
+.cards-item a:hover , button:hover {
     color: #ffffff;
     background-color: #ff6800;
     border: 1px solid transparent;
 }
 
-.item-btn a:last-child:hover {
+.item-btn button:last-child:hover {
     color: #ffffff;
     background-color: #d90808;
     border: 1px solid transparent;
