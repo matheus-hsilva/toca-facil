@@ -52,3 +52,16 @@ function abrirModalExcluirAula(id) {
     document.getElementById("codigo-excluir-aula").value = id;
     document.getElementById("excluir-modal").style.display = "flex";
 }
+
+function abrirModalAtualizarCurso(id, nome, descricao, professorId) {
+    document.getElementById("codigo-curso").value = id;
+    document.getElementById("nome-curso").value = nome;
+    document.getElementById("descricao-curso").value = descricao;
+    document.getElementById("professor-curso").value = professorId;
+    document.getElementById("atualizar-modal").style.display = "block";
+}
+
+function abrirModalExcluirCurso(id) {
+    document.getElementById("codigo-excluir-curso").value = id;
+    document.getElementById("excluir-modal").style.display = "block";
+}

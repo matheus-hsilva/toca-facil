@@ -1,4 +1,3 @@
-
 <?php
 
     function conectarBD(){
@@ -37,9 +36,33 @@
 
     function retornarCursos(){
         $conexao = conectarBD();
-        $consulta = "SELECT id, nome, descricao, imagem FROM curso";
+        $consulta = "SELECT id, nome, descricao, imagem, professor_id FROM curso";
         $listaCursos = mysqli_query($conexao, $consulta);
         return $listaCursos;
+    }
+
+    function alterarCurso($nome, $descricao, $professorId, $cursoId){
+
+        $conexao = conectarBD();
+        $consulta = "UPDATE curso SET
+                 nome = '$nome',
+                 descricao = '$descricao',
+                 professor_id = '$professorId'
+                 WHERE id = '$cursoId'";
+        mysqli_query($conexao, $consulta);
+    }
+
+    function excluirCurso($cursoId){
+
+        $conexao = conectarBD();
+
+        // primeiro apaga as aulas do curso (a aula depende do curso)
+        $consulta = "DELETE FROM aula WHERE curso_id = '$cursoId'";
+        mysqli_query($conexao, $consulta);
+
+        // depois apaga o curso
+        $consulta = "DELETE FROM curso WHERE id = '$cursoId'";
+        mysqli_query($conexao, $consulta);
     }
 
     function retornarAlunos(){

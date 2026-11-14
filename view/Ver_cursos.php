@@ -74,6 +74,46 @@
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
+
+            <div id="atualizar-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="atualizarCurso">
+                    <input type="hidden" name="inputCodigoCurso" id="codigo-curso">
+                    <div class="btn-fechar">
+                        <button type="button" class="fechar-modal" onclick="fecharModal()"><i class="fa-solid fa-x"></i></button>
+                    </div>
+                    <h1>Editar <span>Curso</span></h1>
+                    <input type="text" id="nome-curso" placeholder="Nome do curso" name="inputNome" required>
+                    <textarea id="descricao-curso" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
+                    <select id="professor-curso" name="inputProfessorId" required>
+                        <option value="" disabled selected>Selecione o Professor</option>
+                        <?php
+                            mysqli_data_seek($listaProfessores, 0);
+                            while ($professor = mysqli_fetch_assoc($listaProfessores)) {
+                        ?>
+                            <option value="<?php echo $professor['id']; ?>">
+                                <?php echo htmlspecialchars($professor['nome']); ?>
+                            </option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                    <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Salvar alterações</button>
+                </form>
+            </div>
+
+            <div id="excluir-modal">
+                <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
+                    <input type="hidden" name="acao" value="excluirCurso">
+                    <input type="hidden" name="inputCodigoExcluirCurso" id="codigo-excluir-curso">
+                    <h1>Excluir <span>Curso</span></h1>
+                    <p>Deseja realmente excluir este curso? As aulas dele também serão excluídas.</p>
+                    <div class="formulario-btn">
+                        <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                        <button type="submit" class="btn-enviar"><i class="fa-solid fa-trash-can"></i> Excluir</button>
+                    </div>
+                </form>
+            </div>
     
 
             
@@ -89,10 +129,15 @@
                             <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>">
                                 <i class="fa-solid fa-eye"></i> Visualizar
                             </a>
-                            <a href="#">
+                            <a href="#" onclick="abrirModalAtualizarCurso(
+                                '<?php echo $curso['id']; ?>',
+                                '<?php echo htmlspecialchars(addslashes($curso['nome'])); ?>',
+                                '<?php echo htmlspecialchars(addslashes($curso['descricao'])); ?>',
+                                '<?php echo $curso['professor_id']; ?>'
+                            ); return false;">
                                 <i class="fa-solid fa-pencil"></i> Editar
                             </a>
-                            <a href="#">
+                            <a href="#" onclick="abrirModalExcluirCurso('<?php echo $curso['id']; ?>'); return false;">
                                 <i class="fa-solid fa-trash-can"></i> Excluir
                             </a>
                         </div>

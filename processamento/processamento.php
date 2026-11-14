@@ -52,6 +52,35 @@
         header('Location:../view/Ver_cursos.php');
         die();
 
+    } else if ($_POST['acao'] == 'atualizarCurso') {
+
+        if (!empty($_POST['inputCodigoCurso']) &&
+            !empty($_POST['inputNome']) &&
+            !empty($_POST['inputDescricao']) &&
+            !empty($_POST['inputProfessorId'])) {
+
+            $cursoId = $_POST['inputCodigoCurso'];
+            $nome = $_POST['inputNome'];
+            $descricao = $_POST['inputDescricao'];
+            $professorId = $_POST['inputProfessorId'];
+
+            alterarCurso($nome, $descricao, $professorId, $cursoId);
+        }
+
+        header('Location:../view/Ver_cursos.php');
+        die();
+
+    } else if ($_POST['acao'] == 'excluirCurso') {
+
+        if (!empty($_POST['inputCodigoExcluirCurso'])) {
+
+            $cursoId = $_POST['inputCodigoExcluirCurso'];
+            excluirCurso($cursoId);
+        }
+
+        header('Location:../view/Ver_cursos.php');
+        die();
+
     } else if ($_POST['acao'] == 'cadastrarAula') {
             if (!empty($_POST['inputCursoId']) &&
                 !empty($_POST['inputTitulo']) &&

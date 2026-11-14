@@ -136,12 +136,42 @@
     color: #ffffff;
     background-color: #d90808;
     border: 1px solid transparent;
-} 
+}
 
+.formulario-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
+.formulario-btn .btn-enviar {
+    width: 45%;
+    background-color: #d90808;
+    color: #090909;
+}
 
+.formulario-btn .btn-enviar:hover {
+    background-color: transparent;
+    border: 1px solid #d90808;
+    color: #d90808;
+}
 
+.btn-cancelar {
+    width: 45%;
+    height: 58px;
+    margin-top: 5px;
+    background-color: #ff6800;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #111111;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-
-
-
+.btn-cancelar:hover {
+    background-color: transparent;
+    border: 1px solid #ff6800;
+    color: #ff6800;
+}
