@@ -36,7 +36,7 @@
         <section class="principal-hero">
             <img src="../assets/images/login.png" alt="Foto do Hero">
             <div class="hero-conteudo">
-                <h1>Nome do Curso</h1>
+                <h1>Aulas do Curso</h1>  
                 <p>Aprenda os primeiros acordes e músicas para começar a tocar um instrumento do zero!</p>
             </div>
         </section>
@@ -92,6 +92,7 @@
             <div id="excluir-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <input type="hidden" name="acao" value="excluirAula">
+                    <input type="hidden" name="inputCursoId" value="<?php echo $cursoId; ?>">
                     <h1>Excluir <span>Aula</span></h1>
                     <p>Deseja realmente excluir esta aula?</p>
                     <input type="hidden" id="codigo-excluir-aula" name="inputCodigoExcluirAula">
