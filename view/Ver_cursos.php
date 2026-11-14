@@ -57,20 +57,25 @@
                     <h1>Cadastrar <span>Curso</span></h1>
                     <input type="text" id="nome" placeholder="Nome do curso" name="inputNome">
                     <textarea id="descricao" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
-                    <select id="professor" name="inputProfessorId" required>
-                    <option disabled selected>Selecione o Professor</option>
-
-                    <?php
-
-                        while ($professor = mysqli_fetch_assoc($listaProfessores)) {
-                    ?>
-                        <option value="<?php echo $professor['id']; ?>">
-                            <?php echo htmlspecialchars($professor['nome']); ?>
-                        </option>
-                    <?php
-                        }
-                    ?>
-                </select>
+                    <select id="categoria" name="inputCategoria" onchange="filtrarProfessores('categoria', 'professor')" required>
+                        <option value="" disabled selected>Selecione a categoria</option>
+                        <option value="violao">Violão</option>
+                        <option value="guitarra">Guitarra</option>
+                        <option value="piano">Piano</option>
+                        <option value="bateria">Bateria</option>
+                    </select>
+                    <select id="professor" name="inputProfessorId" required disabled>
+                        <option value="" disabled selected>Selecione o Professor</option>
+                        <?php
+                            while ($professor = mysqli_fetch_assoc($listaProfessores)) {
+                        ?>
+                            <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
+                                <?php echo htmlspecialchars($professor['nome']); ?>
+                            </option>
+                        <?php
+                            }
+                        ?>
+                    </select>
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
             </div>
@@ -85,13 +90,20 @@
                     <h1>Editar <span>Curso</span></h1>
                     <input type="text" id="nome-curso" placeholder="Nome do curso" name="inputNome" required>
                     <textarea id="descricao-curso" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
+                    <select id="categoria-curso" name="inputCategoria" onchange="filtrarProfessores('categoria-curso', 'professor-curso')" required>
+                        <option value="" disabled selected>Selecione a categoria</option>
+                        <option value="violao">Violão</option>
+                        <option value="guitarra">Guitarra</option>
+                        <option value="piano">Piano</option>
+                        <option value="bateria">Bateria</option>
+                    </select>
                     <select id="professor-curso" name="inputProfessorId" required>
                         <option value="" disabled selected>Selecione o Professor</option>
                         <?php
                             mysqli_data_seek($listaProfessores, 0);
                             while ($professor = mysqli_fetch_assoc($listaProfessores)) {
                         ?>
-                            <option value="<?php echo $professor['id']; ?>">
+                            <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
                                 <?php echo htmlspecialchars($professor['nome']); ?>
                             </option>
                         <?php
@@ -122,7 +134,7 @@
                     while ($curso = mysqli_fetch_assoc($listaCursos)) {
                 ?>
                     <div class="cards-item">
-                        <img src="../assets/images/curso violao.png" alt="Imagem do curso">
+                        <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">
                         <p><?php echo htmlspecialchars($curso['nome']); ?></p>
                         <p><?php echo htmlspecialchars($curso['descricao']); ?></p>
                         <div class="item-btn">
@@ -133,7 +145,8 @@
                                 '<?php echo $curso['id']; ?>',
                                 '<?php echo htmlspecialchars(addslashes($curso['nome'])); ?>',
                                 '<?php echo htmlspecialchars(addslashes($curso['descricao'])); ?>',
-                                '<?php echo $curso['professor_id']; ?>'
+                                '<?php echo $curso['professor_id']; ?>',
+                                '<?php echo $curso['categoria']; ?>'
                             ); return false;">
                                 <i class="fa-solid fa-pencil"></i> Editar
                             </a>

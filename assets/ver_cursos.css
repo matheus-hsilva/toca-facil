@@ -175,3 +175,12 @@
     border: 1px solid #ff6800;
     color: #ff6800;
 }
+
+.modal-formulario select:invalid {
+    color: #ffffffba;
+}
+
+.modal-formulario select:disabled {
+    color: #ffffffba;
+    opacity: 1;
+}

@@ -53,10 +53,28 @@ function abrirModalExcluirAula(id) {
     document.getElementById("excluir-modal").style.display = "flex";
 }
 
-function abrirModalAtualizarCurso(id, nome, descricao, professorId) {
+function filtrarProfessores(idCategoria, idProfessor) {
+    const categoria = document.getElementById(idCategoria).value;
+    const selectProfessor = document.getElementById(idProfessor);
+
+    selectProfessor.disabled = false;
+    selectProfessor.value = "";
+
+    for (const opcao of selectProfessor.options) {
+        if (opcao.value === "") continue;
+
+        const combina = opcao.dataset.especialidade === categoria;
+        opcao.hidden = !combina;
+        opcao.disabled = !combina;
+    }
+}
+
+function abrirModalAtualizarCurso(id, nome, descricao, professorId, categoria) {
     document.getElementById("codigo-curso").value = id;
     document.getElementById("nome-curso").value = nome;
     document.getElementById("descricao-curso").value = descricao;
+    document.getElementById("categoria-curso").value = categoria;
+    filtrarProfessores("categoria-curso", "professor-curso");
     document.getElementById("professor-curso").value = professorId;
     document.getElementById("atualizar-modal").style.display = "block";
 }

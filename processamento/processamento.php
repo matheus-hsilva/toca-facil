@@ -40,14 +40,16 @@
         
         if(!empty($_POST['inputNome']) && 
         !empty($_POST['inputDescricao']) &&
-        !empty($_POST['inputProfessorId'])) {
+        !empty($_POST['inputProfessorId']) &&
+        !empty($_POST['inputCategoria'])) {
         
         $nome = $_POST['inputNome'];
         $descricao = $_POST['inputDescricao'];
         $professorId = $_POST['inputProfessorId'];
+        $categoria = $_POST['inputCategoria'];
         }
 
-        inserirCurso($nome, $descricao, $professorId);
+        inserirCurso($nome, $descricao, $professorId, $categoria);
 
         header('Location:../view/Ver_cursos.php');
         die();
@@ -57,14 +59,16 @@
         if (!empty($_POST['inputCodigoCurso']) &&
             !empty($_POST['inputNome']) &&
             !empty($_POST['inputDescricao']) &&
-            !empty($_POST['inputProfessorId'])) {
+            !empty($_POST['inputProfessorId']) &&
+            !empty($_POST['inputCategoria'])) {
 
             $cursoId = $_POST['inputCodigoCurso'];
             $nome = $_POST['inputNome'];
             $descricao = $_POST['inputDescricao'];
             $professorId = $_POST['inputProfessorId'];
+            $categoria = $_POST['inputCategoria'];
 
-            alterarCurso($nome, $descricao, $professorId, $cursoId);
+            alterarCurso($nome, $descricao, $professorId, $categoria, $cursoId);
         }
 
         header('Location:../view/Ver_cursos.php');

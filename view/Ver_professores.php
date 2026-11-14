@@ -56,10 +56,8 @@
                     <option disabled selected>Selecione a especialidade</option>
                         <option value="violao">Violão</option>
                         <option value="guitarra">Guitarra</option>
-                        <option value="teclado">Teclado</option>
+                        <option value="piano">Piano</option>
                         <option value="bateria">Bateria</option>
-                        <option value="baixo">Baixo</option>
-                        <option value="canto">Canto</option>
                     </select>
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>

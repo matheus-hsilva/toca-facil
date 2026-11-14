@@ -110,20 +110,21 @@
     gap: 20px;
 }
 
-.item-btn a {
+.item-btn button {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    text-decoration: none;
+    background-color: transparent;
     font-size: 0.8rem;
     color: #ff6800;
     border: 1px solid #ff6800;
     border-radius: 6px;
     padding: 6px 8px;
+    cursor: pointer;
     transition: 0.4s;
 }
 
-.item-btn a:last-child {
+.item-btn button:last-child {
     color: #d90808;
     border: 1px solid #d90808;
 }
@@ -132,15 +133,58 @@
     margin-right: 5px;
 }
 
-.cards-item a:hover {
+.cards-item button:hover {
     color: #ffffff;
     background-color: #ff6800;
     border: 1px solid transparent;
 }
 
-.item-btn a:last-child:hover {
+.item-btn button:last-child:hover {
     color: #ffffff;
     background-color: #d90808;
     border: 1px solid transparent;
-} 
+}
 
+#excluir-modal p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.formulario-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.formulario-btn .btn-enviar {
+    width: 45%;
+    background-color: #d90808;
+    color: #090909;
+}
+
+.formulario-btn .btn-enviar:hover {
+    background-color: transparent;
+    border: 1px solid #d90808;
+    color: #d90808;
+}
+
+.btn-cancelar {
+    width: 45%;
+    height: 58px;
+    margin-top: 5px;
+    background-color: #ff6800;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #111111;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: transparent;
+    border: 1px solid #ff6800;
+    color: #ff6800;
+}

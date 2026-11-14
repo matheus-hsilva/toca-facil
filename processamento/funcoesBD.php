@@ -22,32 +22,33 @@
     function retornarProfessores(){
 
         $conexao = conectarBD();
-        $consulta = "SELECT id, nome FROM professor";
+        $consulta = "SELECT id, nome, especialidade FROM professor";
         $listaProfessores = mysqli_query($conexao, $consulta);
         return $listaProfessores;
     }
 
-    function inserirCurso($nome, $descricao, $professorId){
+    function inserirCurso($nome, $descricao, $professorId, $categoria){
 
         $conexao = conectarBD();
-        $consulta = "INSERT INTO curso (nome, descricao, professor_id) VALUES ('$nome','$descricao','$professorId')";
+        $consulta = "INSERT INTO curso (nome, descricao, professor_id, categoria) VALUES ('$nome','$descricao','$professorId','$categoria')";
         mysqli_query($conexao, $consulta);
     }
 
     function retornarCursos(){
         $conexao = conectarBD();
-        $consulta = "SELECT id, nome, descricao, imagem, professor_id FROM curso";
+        $consulta = "SELECT id, nome, descricao, categoria, professor_id FROM curso";
         $listaCursos = mysqli_query($conexao, $consulta);
         return $listaCursos;
     }
 
-    function alterarCurso($nome, $descricao, $professorId, $cursoId){
+    function alterarCurso($nome, $descricao, $professorId, $categoria, $cursoId){
 
         $conexao = conectarBD();
         $consulta = "UPDATE curso SET
                  nome = '$nome',
                  descricao = '$descricao',
-                 professor_id = '$professorId'
+                 professor_id = '$professorId',
+                 categoria = '$categoria'
                  WHERE id = '$cursoId'";
         mysqli_query($conexao, $consulta);
     }
