@@ -1,3 +1,7 @@
+<?php 
+    require "../processamento/funcoesBD.php";
+    $listaCursos = retornarCursos();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -45,30 +49,18 @@
                 <a href="Ver_cursos.php"><button>Ver todos os cursos <i class="fa-solid fa-arrow-right-long"></i></button></a>
             </div>
             <div class="cursos-cards">
-                <div class="cards-item">
-                    <img src="../assets/images/curso violao.png" alt="Foto de um violão">
-                    <p>Violão Básico</p>
-                    <p>Aprenda do zero ao primeiro acorde.</p>
-                    <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <div class="cards-item">
-                    <img src="../assets/images/curso guitarra.png" alt="Foto de uma guitarra">
-                    <p>Guitarra Avançada</p>
-                    <p>Desenvolva suas habilidades.</p>
-                    <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <div class="cards-item">
-                    <img src="../assets/images/curso piano.png" alt="Foto de um piano">
-                    <p>Piano para Todos</p>
-                    <p>Aprenda as bases do piano.</p>
-                    <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <div class="cards-item">
-                    <img src="../assets/images/curso bateria.png" alt="Foto de uma bateria">
-                    <p>Bateria Profissional</p>
-                    <p>Técnicas avançadas e muito mais.</p>
-                    <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
+                <?php
+                    while ($curso = mysqli_fetch_assoc($listaCursos)) {
+                ?>
+                    <div class="cards-item">
+                        <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">
+                        <p><?php echo $curso['nome']; ?></p>
+                        <p><?php echo $curso['descricao']; ?></p>
+                        <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                <?php
+                    }
+                ?>
             </div>
         </section>
     </main>

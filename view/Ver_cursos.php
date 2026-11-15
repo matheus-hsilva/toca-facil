@@ -82,7 +82,7 @@
             </div>
 
 
-             <div class="cursos-cards">
+            <div class="cursos-cards">
                 <?php
                     while ($curso = mysqli_fetch_assoc($listaCursos)) {
                 ?>
