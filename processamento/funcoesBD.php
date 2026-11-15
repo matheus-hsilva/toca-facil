@@ -179,4 +179,19 @@
         mysqli_query($conexao, $consulta);
     }
 
+    function inserirProprietario($usuario, $email, $senha){
+
+        $conexao = conectarBD();
+        $consulta = "INSERT INTO proprietario (usuario, email, senha) VALUES ('$usuario','$email','$senha')";
+        mysqli_query($conexao, $consulta);
+    }
+
+    function buscarProprietario($login){
+
+        $conexao = conectarBD();
+        $consulta = "SELECT * FROM proprietario WHERE email = '$login' OR usuario = '$login'";
+        $resultado = mysqli_query($conexao, $consulta);
+        return $resultado;
+    }
+
 ?>

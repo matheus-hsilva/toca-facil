@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    
+    if (isset($_SESSION['proprietarioId'])) {
+        header('Location:Principal.php');
+        die();
+    }
+
+    $erro = $_SESSION['erroLogin'] ?? null;
+    unset($_SESSION['erroLogin']);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -32,13 +43,19 @@
                     <h1>Bem-vindo de volta!</h1>
                     <p>Faça login para continuar no seu som.</p>
                 </div>
-                <form method="POST" action="#">
+                <form method="POST" action="../processamento/processamento.php">
+                    <input type="hidden" name="acao" value="login">
                     <label for="email-usuario">E-mail ou usuário</label>
-                    <input type="text" placeholder="Digite o seu e-mail ou usuário">
+                    <input type="text" id="email-usuario" name="inputLogin" placeholder="Digite o seu e-mail ou usuário" required>
                     <label for="senha">Senha</label>
-                    <input type="password" placeholder="Digite sua senha">
+                    <input type="password" id="senha" name="inputSenha" placeholder="Digite sua senha" required>
+                    <?php if ($erro) { ?>
+                        <div class="erro-login"><?php echo htmlspecialchars($erro); ?></div>
+                    <?php } ?>
+                    <div class="btn-entrar">
+                        <button type="submit">Entrar</button>
+                    </div>
                 </form>
-                <a class="btn-entrar" href="Principal.php"><button type="submit">Entrar</button></a>
                 <a class="info-esquecer" href="#">Esqueceu sua senha?</a>
                 <div class="info-separador">
                     <hr>

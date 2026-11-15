@@ -1,4 +1,5 @@
 <?php
+    require "../processamento/verificarLogin.php";
     require "../processamento/funcoesBD.php";
     $listaCategorias = retornarCategorias();
 ?>
@@ -28,7 +29,7 @@
             </ul>
         </nav>
         <nav class="cabecalho-sair">
-            <a href="../index.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+            <a href="../processamento/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
         </nav>
     </header>
 

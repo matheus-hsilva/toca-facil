@@ -250,5 +250,48 @@
         header('Location:../view/Ver_categorias.php');
         die();
 
-    }
+        } else if ($_POST['acao'] == 'login'){
+
+            $login = $_POST['inputLogin'];
+            $senha = $_POST['inputSenha'];
+
+            $resultado = buscarProprietario($login);
+            $proprietario = mysqli_fetch_assoc($resultado);
+
+            if ($proprietario && password_verify($senha, $proprietario['senha'])) {
+
+                $_SESSION['proprietarioId'] = $proprietario['id'];
+                $_SESSION['proprietarioUsuario'] = $proprietario['usuario'];
+
+                header('Location:../view/Principal.php');
+                die();
+            }
+
+            $_SESSION['erroLogin'] = 'Usuário ou senha incorretos.';
+            header('Location:../view/login.php');
+            die();
+
+        } else if ($_POST['acao'] == 'cadastrarProprietario'){
+
+            if (!empty($_POST['inputUsuario']) &&
+            !empty($_POST['inputEmail']) &&
+            !empty($_POST['inputSenha'])) {
+
+                $usuario = $_POST['inputUsuario'];
+                $email = $_POST['inputEmail'];
+                $senha = password_hash($_POST['inputSenha'], PASSWORD_DEFAULT);
+
+                if (mysqli_num_rows(buscarProprietario($usuario)) > 0 || mysqli_num_rows(buscarProprietario($email)) > 0) {
+                    $_SESSION['erroCadastro'] = 'Usuário ou e-mail já cadastrado.';
+                    header('Location:../view/Cadastrar_proprietario.php');
+                    die();
+                }
+
+                inserirProprietario($usuario, $email, $senha);
+            }
+
+            header('Location:../view/login.php');
+            die();
+
+        }
 ?>
