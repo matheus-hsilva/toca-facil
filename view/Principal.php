@@ -51,7 +51,12 @@
             </div>
             <div class="cursos-cards">
                 <?php
+                    $contador = 0;
                     while ($curso = mysqli_fetch_assoc($listaCursos)) {
+                        if ($contador == 4) {
+                            break;
+                        }
+                        $contador++;
                 ?>
                     <div class="cards-item">
                         <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">

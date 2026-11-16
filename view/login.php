@@ -50,7 +50,7 @@
                     <label for="senha">Senha</label>
                     <input type="password" id="senha" name="inputSenha" placeholder="Digite sua senha" required>
                     <?php if ($erro) { ?>
-                        <div class="erro-login"><?php echo htmlspecialchars($erro); ?></div>
+                        <div class="erro-login"><?php echo $erro; ?></div>
                     <?php } ?>
                     <div class="btn-entrar">
                         <button type="submit">Entrar</button>
