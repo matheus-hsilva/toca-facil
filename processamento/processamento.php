@@ -293,5 +293,20 @@
             header('Location:../view/login.php');
             die();
 
+        } else if ($_POST['acao'] == 'redefinirSenha'){
+
+        if (!empty($_POST['inputEmail']) && 
+        !empty($_POST['inputSenha'])) {
+
+            $email = $_POST['inputEmail'];
+            $senha = password_hash($_POST['inputSenha'], PASSWORD_DEFAULT);
+            
+            redefinirSenha($email, $senha);
         }
+
+        header('Location:../view/login.php');
+        die();
+
+    }
 ?>
+

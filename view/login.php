@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="../asstes/script.js"></script>
+    <script src="../assets/script.js"></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -56,7 +56,7 @@
                         <button type="submit">Entrar</button>
                     </div>
                 </form>
-                <a class="info-esquecer" href="#">Esqueceu sua senha?</a>
+                <a class="info-esquecer" href="redefinir_senha.php">Esqueceu sua senha?</a>
                 <div class="info-separador">
                     <hr>
                     <p>ou</p>

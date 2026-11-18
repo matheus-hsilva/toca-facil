@@ -194,4 +194,11 @@
         return $resultado;
     }
 
+    function redefinirSenha($email, $senha){
+
+        $conexao = conectarBD();
+        $consulta = "UPDATE proprietario SET senha = '$senha' WHERE email = '$email'";
+        mysqli_query($conexao, $consulta);
+    }
+
 ?>
