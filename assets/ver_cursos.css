@@ -85,13 +85,13 @@
     padding: 0px 20px 0px 20px;
 }
 
-.cards-item p:nth-child(2) {
+.cards-item p:nth-child(1) {
     margin-top: 10px;
     font-size: 0.9rem;
     color: #ffffff;
 }
 
-.cards-item p:nth-child(3) {
+.cards-item p:nth-child(2), .cards-item p:nth-child(3) {
     font-size: 0.8rem;
     color: #ffffffba;
 }

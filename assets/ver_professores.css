@@ -50,6 +50,15 @@
     color: #090909;
 }
 
+.modal-formulario select:invalid {
+    color: #ffffffba;
+}
+
+.modal-formulario select:disabled {
+    color: #ffffffba;
+    opacity: 1;
+}
+
 .professores-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

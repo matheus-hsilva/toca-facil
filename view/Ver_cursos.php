@@ -3,6 +3,7 @@
     require "../processamento/funcoesBD.php";
     $listaProfessores = retornarProfessores();
     $listaCursos = retornarCursos();
+    $listaCategorias = retornarCategorias();
 ?>
 
 <!DOCTYPE html>
@@ -61,17 +62,22 @@
                     <textarea id="descricao" name="inputDescricao" placeholder="Descrição do curso" required></textarea>
                     <select id="categoria" name="inputCategoria" onchange="filtrarProfessores('categoria', 'professor')" required>
                         <option value="" disabled selected>Selecione a categoria</option>
-                        <option value="violao">Violão</option>
-                        <option value="guitarra">Guitarra</option>
-                        <option value="piano">Piano</option>
-                        <option value="bateria">Bateria</option>
+                        <?php
+                            while ($categoria = mysqli_fetch_assoc($listaCategorias)) {
+                        ?>
+                            <option value="<?php echo $categoria['id']; ?>">
+                                <?php echo $categoria['nome']; ?>
+                            </option>
+                        <?php
+                            }
+                        ?>
                     </select>
                     <select id="professor" name="inputProfessorId" required disabled>
                         <option value="" disabled selected>Selecione o Professor</option>
                         <?php
                             while ($professor = mysqli_fetch_assoc($listaProfessores)) {
                         ?>
-                            <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
+                            <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['categoria_id']; ?>">
                                 <?php echo $professor['nome']; ?>
                             </option>
                         <?php
@@ -88,9 +94,9 @@
                     while ($curso = mysqli_fetch_assoc($listaCursos)) {
                 ?>
                     <div class="cards-item">
-                        <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">
                         <p><?php echo $curso['nome']; ?></p>
                         <p><?php echo $curso['descricao']; ?></p>
+                        <p><?php echo $curso['categoria_id']; ?></p>
                         <div class="item-btn">
                             <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>"><i class="fa-solid fa-eye"></i> Visualizar</a>
                             <button onclick="abrirModalAtualizar('codigo-curso', '<?php echo $curso['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
@@ -125,7 +131,7 @@
                             mysqli_data_seek($listaProfessores, 0);
                             while ($professor = mysqli_fetch_assoc($listaProfessores)) {
                                 ?>
-                            <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['especialidade']; ?>">
+                            <option value="<?php echo $professor['id']; ?>" data-especialidade="<?php echo $professor['categoria_id']; ?>">
                                 <?php echo $professor['nome']; ?>
                             </option>
                             <?php

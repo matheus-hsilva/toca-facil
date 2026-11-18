@@ -2,6 +2,7 @@
     require "../processamento/verificarLogin.php";
     require "../processamento/funcoesBD.php";
     $listaProfessores = retornarProfessores();
+    $listaCategorias = retornarCategorias();
 ?>
 
 <!DOCTYPE html>
@@ -59,12 +60,17 @@
                     <input type="text" id="nome" placeholder="Seu nome" name="inputNome">
                     <input type="email" id="email" placeholder="Seu e-mail" name="inputEmail">
                     <input type="password" id="senha" placeholder="Sua senha" name="inputSenha">
-                    <select id="especialidade" name="inputEspecialidade">
-                    <option disabled selected>Selecione a especialidade</option>
-                        <option value="violao">Violão</option>
-                        <option value="guitarra">Guitarra</option>
-                        <option value="piano">Piano</option>
-                        <option value="bateria">Bateria</option>
+                    <select id="especialidade" name="inputEspecialidade" required>
+                        <option value="" disabled selected>Selecione a especialidade</option>
+                        <?php
+                            while ($categoria = mysqli_fetch_assoc($listaCategorias)) {
+                        ?>
+                            <option value="<?php echo $categoria['id']; ?>">
+                                <?php echo $categoria['nome']; ?>
+                            </option>
+                        <?php
+                            }
+                        ?>
                     </select>
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Cadastrar</button>
                 </form>
@@ -77,7 +83,7 @@
                         echo "<div class=\"cards-item\">";
                         echo "<p>" . $professor["nome"] . "</p>";
                         echo "<p>" . $professor["email"] . "</p>";
-                        echo "<p> <span>Especialidade: </span>" . $professor["especialidade"] . "</p>";
+                        echo "<p> <span>Especialidade: </span>" . $professor["categoria_nome"] . "</p>";
                         echo "<div class=\"item-btn\">";
                         echo "<button onclick=\"abrirModalAtualizar('codigo-professor', " . $professor["id"] . ")\"><i class=\"fa-solid fa-eye\"></i> Editar</button>";
                         echo "<button onclick=\"abrirModalExcluir('codigo-excluir-professor', " . $professor["id"] . ")\"><i class=\"fa-solid fa-trash-can\"></i> Excluir</button>";
@@ -98,12 +104,18 @@
                     <input type="text" id="nome" placeholder="Novo nome" name="inputNome" required>
                     <input type="email" id="email" placeholder="Novo e-mail" name="inputEmail" required>
                     <input type="password" id="senha" placeholder="Nova senha" name="inputSenha" required>
-                    <select id="especialidade" name="inputEspecialidade">
-                    <option disabled selected>Selecione a especialidade</option>
-                        <option value="violao">Violão</option>
-                        <option value="guitarra">Guitarra</option>
-                        <option value="piano">Piano</option>
-                        <option value="bateria">Bateria</option>
+                    <select id="especialidade-atualizar" name="inputEspecialidade" required>
+                        <option value="" disabled selected>Selecione a especialidade</option>
+                        <?php
+                            mysqli_data_seek($listaCategorias, 0);
+                            while ($categoria = mysqli_fetch_assoc($listaCategorias)) {
+                        ?>
+                            <option value="<?php echo $categoria['id']; ?>">
+                                <?php echo $categoria['nome']; ?>
+                            </option>
+                        <?php
+                            }
+                        ?>
                     </select>
                     <input type="hidden" id="codigo-professor" name="inputCodigo">
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-user-plus"></i>Atualizar</button>

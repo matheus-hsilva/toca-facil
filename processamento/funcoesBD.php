@@ -40,25 +40,25 @@
 
 
 
-    function inserirProfessor($nome, $email, $senha, $especialidade){
+    function inserirProfessor($nome, $email, $senha, $categoriaId){
 
         $conexao = conectarBD();
-        $consulta = "INSERT INTO professor (nome, email, senha, especialidade) VALUES ('$nome','$email','$senha','$especialidade')";
+        $consulta = "INSERT INTO professor (nome, email, senha, categoria_id) VALUES ('$nome','$email','$senha','$categoriaId')";
         mysqli_query($conexao,$consulta);
     }
 
     function retornarProfessores(){
 
         $conexao = conectarBD();
-        $consulta = "SELECT * FROM professor";
+        $consulta = "SELECT p.*, c.nome AS categoria_nome FROM professor p iNNER JOIN categoria c ON p.categoria_id = c.id";
         $listaProfessores = mysqli_query($conexao, $consulta);
         return $listaProfessores;
     }
 
-    function alterarProfessor($nome, $email, $senha, $especialidade, $professorId) {
+    function alterarProfessor($nome, $email, $senha, $categoriaId, $professorId) {
 
         $conexao = conectarBD();
-        $consulta = "UPDATE professor SET nome = '$nome', email = '$email', senha = '$senha',  especialidade = '$especialidade' WHERE id = '$professorId'";
+        $consulta = "UPDATE professor SET nome = '$nome', email = '$email', senha = '$senha',  categoria_id = '$categoriaId' WHERE id = '$professorId'";
         mysqli_query($conexao, $consulta);
     }
 
@@ -73,17 +73,17 @@
 
 
 
-    function inserirCurso($nome, $descricao, $professorId, $categoria){
+    function inserirCurso($nome, $descricao, $professorId, $categoriaId){
 
         $conexao = conectarBD();
-        $consulta = "INSERT INTO curso (nome, descricao, professor_id, categoria) VALUES ('$nome','$descricao','$professorId','$categoria')";
+        $consulta = "INSERT INTO curso (nome, descricao, professor_id, categoria_id) VALUES ('$nome','$descricao','$professorId','$categoriaId')";
         mysqli_query($conexao, $consulta);
     }
 
     function retornarCursos(){
 
         $conexao = conectarBD();
-        $consulta = "SELECT id, nome, descricao, categoria, professor_id FROM curso";
+        $consulta = "SELECT * FROM curso";
         $listaCursos = mysqli_query($conexao, $consulta);
         return $listaCursos;
     }
@@ -99,7 +99,7 @@
     function alterarCurso($nome, $descricao, $professorId, $categoria, $cursoId){
 
         $conexao = conectarBD();
-        $consulta = "UPDATE curso SET nome = '$nome', descricao = '$descricao', professor_id = '$professorId', categoria = '$categoria' WHERE id = '$cursoId'";
+        $consulta = "UPDATE curso SET nome = '$nome', descricao = '$descricao', professor_id = '$professorId', categoria_id = '$categoria_id' WHERE id = '$cursoId'";
         mysqli_query($conexao, $consulta);
     }
 

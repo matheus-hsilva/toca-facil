@@ -8,12 +8,13 @@
         !empty($_POST['inputEmail']) &&
         !empty($_POST['inputSenha'])) {
         
-        $nome = $_POST['inputNome'];
-        $email = $_POST['inputEmail'];
-        $senha = $_POST['inputSenha'];
+            $nome = $_POST['inputNome'];
+            $email = $_POST['inputEmail'];
+            $senha = $_POST['inputSenha'];
+            
+            inserirAluno($nome, $email, $senha);
         }
 
-        inserirAluno($nome, $email, $senha);
 
         header('Location:../view/Ver_alunos.php');
         die();
@@ -25,13 +26,14 @@
         !empty($_POST['inputSenha']) &&
         !empty($_POST['inputEspecialidade'])) {
         
-        $nome = $_POST['inputNome'];
-        $email = $_POST['inputEmail'];
-        $senha = $_POST['inputSenha'];
-        $especialidade = $_POST['inputEspecialidade'];
+            $nome = $_POST['inputNome'];
+            $email = $_POST['inputEmail'];
+            $senha = $_POST['inputSenha'];
+            $categoriaId = $_POST['inputEspecialidade'];
+            
+            inserirProfessor($nome, $email, $senha, $categoriaId);
         }
 
-        inserirProfessor($nome, $email, $senha, $especialidade);
 
         header('Location:../view/Ver_professores.php');
         die();
@@ -43,13 +45,14 @@
         !empty($_POST['inputProfessorId']) &&
         !empty($_POST['inputCategoria'])) {
         
-        $nome = $_POST['inputNome'];
-        $descricao = $_POST['inputDescricao'];
-        $professorId = $_POST['inputProfessorId'];
-        $categoria = $_POST['inputCategoria'];
+            $nome = $_POST['inputNome'];
+            $descricao = $_POST['inputDescricao'];
+            $professorId = $_POST['inputProfessorId'];
+            $categoriaId = $_POST['inputCategoria'];
+           
+            inserirCurso($nome, $descricao, $professorId, $categoriaId);
         }
 
-        inserirCurso($nome, $descricao, $professorId, $categoria);
 
         header('Location:../view/Ver_cursos.php');
         die();
@@ -57,18 +60,18 @@
     } else if ($_POST['acao'] == 'atualizarCurso') {
 
         if (!empty($_POST['inputCodigo']) &&
-            !empty($_POST['inputNome']) &&
-            !empty($_POST['inputDescricao']) &&
-            !empty($_POST['inputProfessorId']) &&
-            !empty($_POST['inputCategoria'])) {
+        !empty($_POST['inputNome']) &&
+        !empty($_POST['inputDescricao']) &&
+        !empty($_POST['inputProfessorId']) &&
+        !empty($_POST['inputCategoria'])) {
 
             $cursoId = $_POST['inputCodigo'];
             $nome = $_POST['inputNome'];
             $descricao = $_POST['inputDescricao'];
             $professorId = $_POST['inputProfessorId'];
-            $categoria = $_POST['inputCategoria'];
+            $categoriaId = $_POST['inputCategoria'];
 
-            alterarCurso($nome, $descricao, $professorId, $categoria, $cursoId);
+            alterarCurso($nome, $descricao, $professorId, $categoriaId, $cursoId);
         }
 
         header('Location:../view/Ver_cursos.php');
@@ -87,32 +90,31 @@
         die();
 
     } else if ($_POST['acao'] == 'cadastrarAula') {
-            if (!empty($_POST['inputCursoId']) &&
-                !empty($_POST['inputTitulo']) &&
-                !empty($_POST['inputDescricao']) &&
-                !empty($_POST['inputOrdem']) &&
-                !empty($_POST['inputDuracao'])) {
+        if (!empty($_POST['inputCursoId']) &&
+        !empty($_POST['inputTitulo']) &&
+        !empty($_POST['inputDescricao']) &&
+        !empty($_POST['inputOrdem']) &&
+        !empty($_POST['inputDuracao'])) {
 
-                $cursoId = $_POST['inputCursoId'];
-                $titulo = $_POST['inputTitulo'];
-                $descricao = $_POST['inputDescricao'];
-                $ordem = $_POST['inputOrdem'];
-                $duracao = $_POST['inputDuracao'];
+            $cursoId = $_POST['inputCursoId'];
+            $titulo = $_POST['inputTitulo'];
+            $descricao = $_POST['inputDescricao'];
+            $ordem = $_POST['inputOrdem'];
+            $duracao = $_POST['inputDuracao'];
 
-                inserirAula($cursoId, $titulo, $descricao, $ordem, $duracao);
-            }
+            inserirAula($cursoId, $titulo, $descricao, $ordem, $duracao);
+        }
 
-            header('Location:../view/Ver_aulas.php?id=' . $cursoId);
-            die();
+        header('Location:../view/Ver_aulas.php?id=' . $cursoId);
+        die();
 
     } else if ($_POST['acao'] == 'atualizarAula') {
-        if (
-            !empty($_POST['inputCodigo']) &&
-            !empty($_POST['inputCursoId']) &&
-            !empty($_POST['inputTitulo']) &&
-            !empty($_POST['inputDescricao']) &&
-            !empty($_POST['inputOrdem']) &&
-            !empty($_POST['inputDuracao'])) {
+        if (!empty($_POST['inputCodigo']) &&
+        !empty($_POST['inputCursoId']) &&
+        !empty($_POST['inputTitulo']) &&
+        !empty($_POST['inputDescricao']) &&
+        !empty($_POST['inputOrdem']) &&
+        !empty($_POST['inputDuracao'])) {
 
             $aulaId = $_POST['inputCodigo'];
             $cursoId = $_POST['inputCursoId'];
@@ -128,9 +130,8 @@
         die();
 
     } else if ($_POST['acao'] == 'excluirAula') {
-        if (
-            !empty($_POST['inputCodigoExcluir']) &&
-            !empty($_POST['inputCursoId'])) {
+        if (!empty($_POST['inputCodigoExcluir']) &&
+        !empty($_POST['inputCursoId'])) {
                 
             $aulaId = $_POST['inputCodigoExcluir'];
             $cursoId = $_POST['inputCursoId'];
@@ -148,13 +149,14 @@
         !empty($_POST['inputSenha']) &&
         !empty($_POST['inputCodigo'])) {
         
-        $nome = $_POST['inputNome'];
-        $email = $_POST['inputEmail'];
-        $senha = $_POST['inputSenha'];
-        $alunoId = $_POST['inputCodigo'];
+            $nome = $_POST['inputNome'];
+            $email = $_POST['inputEmail'];
+            $senha = $_POST['inputSenha'];
+            $alunoId = $_POST['inputCodigo'];
+
+            alterarAluno($nome, $email, $senha, $alunoId);
         }
 
-        alterarAluno($nome, $email, $senha, $alunoId);
 
         header('Location:../view/Ver_alunos.php');
         die();
@@ -163,10 +165,9 @@
         
         if(!empty($_POST['inputCodigoExcluir'])) {
 
-        $alunoId = $_POST['inputCodigoExcluir'];
+            $alunoId = $_POST['inputCodigoExcluir'];
         
-        excluirAluno($alunoId);
-
+            excluirAluno($alunoId);
         }
 
         header('Location:../view/Ver_alunos.php');
@@ -180,14 +181,14 @@
         !empty($_POST['inputEspecialidade']) &&
         !empty($_POST['inputCodigo'])) {
         
-        $nome = $_POST['inputNome'];
-        $email = $_POST['inputEmail'];
-        $senha = $_POST['inputSenha'];
-        $especialidade = $_POST['inputEspecialidade'];
-        $professorId = $_POST['inputCodigo'];
+            $nome = $_POST['inputNome'];
+            $email = $_POST['inputEmail'];
+            $senha = $_POST['inputSenha'];
+            $categoriaId = $_POST['inputEspecialidade'];
+            $professorId = $_POST['inputCodigo'];
+            
+            alterarProfessor($nome, $email, $senha, $categoriaId, $professorId);
         }
-
-        alterarProfessor($nome, $email, $senha, $especialidade, $professorId);
 
         header('Location:../view/Ver_professores.php');
         die();
@@ -196,10 +197,9 @@
         
         if(!empty($_POST['inputCodigoExcluir'])) {
 
-        $professorId = $_POST['inputCodigoExcluir'];
+            $professorId = $_POST['inputCodigoExcluir'];
         
-        excluirProfessor($professorId);
-
+            excluirProfessor($professorId);
         }
 
         header('Location:../view/Ver_professores.php');
@@ -210,11 +210,10 @@
         if(!empty($_POST['inputNome']) && 
         $_FILES['inputImagem']['error'] == 0) {
 
-        $nome = $_POST['inputNome'];
-        $imagem = file_get_contents($_FILES['inputImagem']['tmp_name']);
+            $nome = $_POST['inputNome'];
+            $imagem = file_get_contents($_FILES['inputImagem']['tmp_name']);
         
-        inserirCategoria($nome, $imagem);
-
+            inserirCategoria($nome, $imagem);
         }
 
         header('Location:../view/Ver_categorias.php');
@@ -226,12 +225,11 @@
         !empty($_POST['inputCodigo']) &&
         $_FILES['inputImagem']['error'] == 0) {
 
-        $nome = $_POST['inputNome'];
-        $categoriaId = $_POST['inputCodigo'];
-        $imagem = file_get_contents($_FILES['inputImagem']['tmp_name']);
+            $nome = $_POST['inputNome'];
+            $categoriaId = $_POST['inputCodigo'];
+            $imagem = file_get_contents($_FILES['inputImagem']['tmp_name']);
         
-        alterarCategoria($nome, $imagem, $categoriaId);
-
+            alterarCategoria($nome, $imagem, $categoriaId);
         }
 
         header('Location:../view/Ver_categorias.php');
@@ -241,10 +239,9 @@
     
         if(!empty($_POST['inputCodigoExcluir'])) {
 
-        $categoriaId = $_POST['inputCodigoExcluir'];
+            $categoriaId = $_POST['inputCodigoExcluir'];
         
-        excluirCategoria($categoriaId);
-
+            excluirCategoria($categoriaId);
         }
 
         header('Location:../view/Ver_categorias.php');
