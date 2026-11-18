@@ -59,7 +59,7 @@
                         $contador++;
                 ?>
                     <div class="cards-item">
-                        <img src="../assets/images/curso <?php echo $curso['categoria']; ?>.png" alt="Imagem do curso">
+                        <img src="data:image/png;base64,<?php echo base64_encode($curso['categoria_imagem']); ?>" alt="Imagem do curso">
                         <p><?php echo $curso['nome']; ?></p>
                         <p><?php echo $curso['descricao']; ?></p>
                         <a href="Ver_cursos.php"><i class="fa-solid fa-arrow-right-long"></i></a>

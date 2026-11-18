@@ -187,3 +187,8 @@
     color: #ffffffba;
     opacity: 1;
 }
+
+.cards-item p:nth-child(4) {
+    font-size: 0.8rem;
+    color: #ffffff;
+}   

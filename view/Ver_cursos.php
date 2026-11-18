@@ -94,9 +94,10 @@
                     while ($curso = mysqli_fetch_assoc($listaCursos)) {
                 ?>
                     <div class="cards-item">
+                        <img src="data:image/png;base64,<?php echo base64_encode($curso['categoria_imagem']); ?>" alt="Imagem do curso">
                         <p><?php echo $curso['nome']; ?></p>
                         <p><?php echo $curso['descricao']; ?></p>
-                        <p><?php echo $curso['categoria_id']; ?></p>
+                        <p>Categoria: <?php echo $curso['categoria_nome']; ?></p>
                         <div class="item-btn">
                             <a href="Ver_aulas.php?id=<?php echo $curso['id']; ?>"><i class="fa-solid fa-eye"></i> Visualizar</a>
                             <button onclick="abrirModalAtualizar('codigo-curso', '<?php echo $curso['id']; ?>')"><i class="fa-solid fa-pencil"></i> Editar</button>
@@ -120,10 +121,16 @@
                     <textarea name="inputDescricao" placeholder="Descrição do curso" required></textarea>
                     <select id="categoria-curso" name="inputCategoria" onchange="filtrarProfessores('categoria-curso', 'professor-curso')" required>
                         <option value="" disabled selected>Selecione a categoria</option>
-                        <option value="violao">Violão</option>
-                        <option value="guitarra">Guitarra</option>
-                        <option value="piano">Piano</option>
-                        <option value="bateria">Bateria</option>
+                        <?php
+                            mysqli_data_seek($listaCategorias, 0);
+                            while ($categoria = mysqli_fetch_assoc($listaCategorias)) {
+                        ?>
+                            <option value="<?php echo $categoria['id']; ?>">
+                                <?php echo $categoria['nome']; ?>
+                            </option>
+                        <?php
+                            }
+                        ?>
                     </select>
                     <select id="professor-curso" name="inputProfessorId" required>
                         <option value="" disabled selected>Selecione o Professor</option>
@@ -137,8 +144,8 @@
                             <?php
                             }
                             ?>
-                    <input type="hidden" name="inputCodigo" id="codigo-curso">
                     </select>
+                    <input type="hidden" name="inputCodigo" id="codigo-curso">
                     <button type="submit" class="btn-enviar"><i class="fa-solid fa-pencil"></i> Atualizar</button>
                 </form>
             </div>
