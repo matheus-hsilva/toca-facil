@@ -183,3 +183,12 @@
     color: #ffffffba;
     opacity: 1;
 }
+
+.erro-categoria {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d90808;
+    border-radius: 5px;
+    color: #ff5c5c;
+    font-size: 0.8rem;
+}

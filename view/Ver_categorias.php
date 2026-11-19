@@ -2,6 +2,9 @@
     require "../processamento/verificarLogin.php";
     require "../processamento/funcoesBD.php";
     $listaCategorias = retornarCategorias();
+
+    $erro = $_SESSION['erroCategoria'] ?? null;
+    unset($_SESSION['erroCategoria']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -91,7 +94,10 @@
                 </form>
             </div>
 
-
+            <?php if ($erro) { ?>
+                <div class="erro-categoria"><?php echo $erro; ?></div>
+            <?php } ?>
+            
             <div id="excluir-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">
                     <input type="hidden" name="acao" value="excluirCategoria">

@@ -240,8 +240,12 @@
         if(!empty($_POST['inputCodigoExcluir'])) {
 
             $categoriaId = $_POST['inputCodigoExcluir'];
-        
-            excluirCategoria($categoriaId);
+
+            try {
+                excluirCategoria($categoriaId);
+            } catch (mysqli_sql_exception $e) {
+                $_SESSION['erroCategoria'] = "Esta categoria está sendo usada em cursos ou professores.";
+            }
         }
 
         header('Location:../view/Ver_categorias.php');
