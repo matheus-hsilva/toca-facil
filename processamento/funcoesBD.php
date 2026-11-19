@@ -152,6 +152,10 @@
         mysqli_query($conexao, $consulta);
     }
 
+
+
+
+
     function inserirCategoria($nome, $imagem){
 
         $conexao = conectarBD();
@@ -183,6 +187,10 @@
         mysqli_query($conexao, $consulta);
     }
 
+
+
+
+    
     function inserirProprietario($usuario, $email, $senha){
 
         $conexao = conectarBD();

@@ -10,7 +10,7 @@
         
             $nome = $_POST['inputNome'];
             $email = $_POST['inputEmail'];
-            $senha = $_POST['inputSenha'];
+            $senha = password_hash($_POST['inputSenha'], PASSWORD_DEFAULT);
             
             inserirAluno($nome, $email, $senha);
         }
@@ -28,7 +28,7 @@
         
             $nome = $_POST['inputNome'];
             $email = $_POST['inputEmail'];
-            $senha = $_POST['inputSenha'];
+            $senha = password_hash($_POST['inputSenha'], PASSWORD_DEFAULT);
             $categoriaId = $_POST['inputEspecialidade'];
             
             inserirProfessor($nome, $email, $senha, $categoriaId);
