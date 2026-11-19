@@ -3,6 +3,9 @@
     require "../processamento/funcoesBD.php";
     $listaProfessores = retornarProfessores();
     $listaCategorias = retornarCategorias();
+
+    $erro = $_SESSION['erroProfessor'] ?? null;
+    unset($_SESSION['erroProfessor']);
 ?>
 
 <!DOCTYPE html>
@@ -122,6 +125,9 @@
                 </form>
             </div>
 
+            <?php if ($erro) { ?>
+                <div class="erro-professor"><?php echo $erro; ?></div>
+            <?php } ?>
 
             <div id="excluir-modal">
                 <form class="modal-formulario" action="../processamento/processamento.php" method="POST">

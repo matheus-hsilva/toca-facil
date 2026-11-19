@@ -198,8 +198,12 @@
         if(!empty($_POST['inputCodigoExcluir'])) {
 
             $professorId = $_POST['inputCodigoExcluir'];
-        
-            excluirProfessor($professorId);
+
+            try {
+                excluirProfessor($professorId);
+            } catch (mysqli_sql_exception $e) {
+                $_SESSION['erroProfessor'] = "Esta professor está sendo usado em algum curso.";
+            } 
         }
 
         header('Location:../view/Ver_professores.php');
