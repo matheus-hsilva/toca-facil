@@ -202,7 +202,7 @@
             try {
                 excluirProfessor($professorId);
             } catch (mysqli_sql_exception $e) {
-                $_SESSION['erroProfessor'] = "Esta professor está sendo usado em algum curso.";
+                $_SESSION['erroProfessor'] = "Esta professor este sendo usado em algum curso.";
             } 
         }
 
